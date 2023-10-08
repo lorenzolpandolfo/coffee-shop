@@ -9,6 +9,13 @@
     height: 100vh;
     background-color: #FCF5C7;
     display: flex;
-    
+    justify-content: center;
+}
 
+.board {
+    background: #FFC09F;
+    height: 80vh;
+    width: 50vw;
+    border-radius: 10px;
+    margin: 30px;
 }
