@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.main {
+    width: 100%;
+    height: 100vh;
+    background-color: #FCF5C7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    justify-content: center;
+    align-items: center;
+    background: #FFC09F;
+    height: 70vh;
+    width: 60vw;
+    max-width: 450px;
+    max-height: 300px;
+    border-radius: 10px;
+}
+
+.card > p,
+.card > label {
+    text-align: center;
+}
+
+.card > label > p {
+    margin-bottom: 8px;
+}
+
+.card input[type="email"],
+.card input[type="password"] {
+    display: block; /* Colocar os inputs em blocos para centralizar */
+    margin: 0 auto; /* Centralizar horizontalmente */
+    text-align: center; /* Centralizar texto dentro dos inputs */
+    width: 80%;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #FFFFFC;
+    color: #000;
+    font-size: 12pt;
+    
+}
+
+
+.teste {
+    margin:50px;
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='login.css')}}">
+    <script src="https://kit.fontawesome.com/6b3ea5ddf8.js" crossorigin="anonymous"></script>
+    <title>Lo Café - Início</title>
+</head>
+<body>
+    <div class="main">
+        <div class="card">
+            <p style="font-size: 30px; margin-top: 3vh; margin-bottom: 0.5vh;">Chega mais!</p>
+            <p style="margin-bottom: 2.5vh;">Insira a sua senha e entre.</p>
+            <label>
+                <p>E-mail</p>
+                <input type="email" name="usuario">
+                <p>Senha</p>
+                <input type="password" name="senha">
+                <p>{{error}}</p>
+                <a class="teste" href="/registrar-se">Cadastre-se aqui!</a>
+            </label>
+        </div>
+    </div>
+</body>
+</html>
