@@ -44,7 +44,6 @@
 }
 
 .board_top > button{
-    
     text-align: center;
     margin: 10px;
     border: none;
@@ -53,11 +52,32 @@
     background-color: #FDFFB6;
     color: #000;
     font-size: 2vh;
-    
     white-space: nowrap;
     display: inline-block;
 }
 
+@media screen and (max-width: 800px) {
+    .right_board {
+        display: none;
+    }
+
+    .board_top {
+        width: 80vw;
+    }
+    
+    .board_top > button {
+        font-size: 2vw;
+        float: left;
+        
+        
+    }
+
+    .board {
+        width: 80vw;
+    }
+    
+
+}
 .right_board {
     background: #FFC09F;
     height: 80vh;
