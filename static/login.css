@@ -18,7 +18,7 @@
     align-items: center;
     background: #FFC09F;
     height: 70vh;
-    width: 60vw;
+    width: 80vw;
     max-width: 450px;
     max-height: 300px;
     border-radius: 10px;
@@ -30,7 +30,7 @@
 }
 
 .card > label > p {
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
 .card input[type="email"],
