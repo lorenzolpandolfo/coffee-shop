@@ -6,7 +6,8 @@
 
 .top_bar {
     width: 100%;
-    height: 7%;
+    height: 4.5vh;
+    max-height: 50px;
     background-color: #A0CED9;
     display: flex;
     position: fixed;
@@ -15,7 +16,7 @@
 
 .top_bar > h1 {
     text-align: center;
-    font-size: 4.5vh;
+    font-size: 3vh;
 }
 
 .main {
@@ -29,7 +30,8 @@
 .board {
     background: #FFC09F;
     height: 80vh;
-    width: 50vw;
+    width: 60vw;
+    max-width: 1050px;
     border-radius: 10px;
     margin: 2vh 2vh 0 2vh;
 }
@@ -38,9 +40,10 @@
     background: #FFC09F;
     height: 10vh;
     max-height: 65px;
-    width: 50vw;
+    width: 60vw;
+    max-width: 1050px;
     border-radius: 10px;
-    margin: 10vh 0 0 2vh;
+    margin: 7vh 0 0 2vh;
 }
 
 .board_top > button{
@@ -62,14 +65,13 @@
     }
 
     .board_top {
+        display: flex;
         width: 80vw;
     }
     
     .board_top > button {
-        font-size: 2vw;
-        float: left;
-        
-        
+        font-size: 2.5vw;
+        margin:1.5vh 0px 1.5vh 1.5vw;
     }
 
     .board {
@@ -85,5 +87,5 @@
     width: 30vw;
     max-width: 250px;
     border-radius: 10px;
-    margin: 10vh 0vh 0 2vh;
+    margin: 7vh 0vh 0 2vh;
 }
