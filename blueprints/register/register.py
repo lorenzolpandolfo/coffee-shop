@@ -9,7 +9,6 @@ register_bp = Blueprint("register", __name__, template_folder="templates")
 
 @register_bp.route("/registrar-se", methods=["POST", "GET"])
 def register():
-    print(session)
     if request.method == "POST":
         email = request.form["email"]
         nome = request.form["nome"]
@@ -23,8 +22,10 @@ def register():
             try:
                 # perdendo informações de antigas contas
                 session.clear()
-                auth.create_user_with_email_and_password(email, senha)
-                localid = session['user']['users'][0]['localId']
+                # carrega o usuario na sessao
+                session['user'] = auth.create_user_with_email_and_password(email, senha)
+                
+                localid = session['user']['localId']
                 session["email"] = email
                 
                 new_user_data = {
@@ -36,6 +37,7 @@ def register():
 
                 # salva no banco de dados as informações do usuario
                 db.child("users").update({nome:new_user_data})
+                print(session)
                 return redirect(url_for("homepage.home"))
             
             except Exception as ERRO:

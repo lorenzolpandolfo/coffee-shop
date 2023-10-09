@@ -4,6 +4,7 @@ homepage_bp = Blueprint("homepage", __name__, template_folder="templates")
 
 @homepage_bp.route("/")
 def home():
+    print(f"Session recebido no home: {session}")
     if session:
         return render_template("homepage.html", USER=session)
     else:
