@@ -1,14 +1,8 @@
-from flask import Blueprint, render_template, redirect
+from flask import Blueprint, render_template, redirect, session
 
 homepage_bp = Blueprint("homepage", __name__, template_folder="templates")
 
 @homepage_bp.route("/")
-def index():
-    return render_template("homepage.html")
+def home():
+    return render_template("homepage.html", USER=session)
     
-
-
-@homepage_bp.route("/novidades")
-def test():
-    return 'Aqui estão as novidades do momento.'
-

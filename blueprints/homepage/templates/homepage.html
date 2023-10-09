@@ -12,17 +12,24 @@
         <i class="fa-solid fa-chevron-down"></i>
         <h1>Lo Café</h1>
         <div class="login">
-            <a href="/login">
-                Login
+            {% if USER %}
+            <a href="/perfil">
+                Meu perfil
                 <i class="fa-solid fa-user"></i>
-            </a>
+                </a>
+            {% else %}
+                <a href="/login">
+                    Login
+                    <i class="fa-solid fa-user"></i>
+                </a>
+                {% endif %}
+            </div>
         </div>
-    </div>
-    <div class="main">
-        <div class="main_board">
-            <div class="board_top">
-                <button>Cardápio</button>
-                <button>Mais pedidos</button>
+        <div class="main">
+            <div class="main_board">
+                <div class="board_top">
+                    <button>Cardápio</button>
+                    <button>Mais pedidos</button>
                 <button>Promoções</button>
                 <button>Bebidas</button>
             </div>
@@ -30,6 +37,7 @@
             </div>
         </div>
         <div class="right_board">
+            <p>oi{{USER}}</p>
             <p>Sou o right_board!</p>
         </div>
         
