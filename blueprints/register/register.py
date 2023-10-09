@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, redirect, request, url_for, session
 import crud
-import user as class_user
+
 
 db = crud.database
 auth = crud.auth
@@ -9,6 +9,7 @@ register_bp = Blueprint("register", __name__, template_folder="templates")
 
 @register_bp.route("/registrar-se", methods=["POST", "GET"])
 def register():
+    print(session)
     if request.method == "POST":
         email = request.form["email"]
         nome = request.form["nome"]
@@ -20,12 +21,21 @@ def register():
             return render_template("register.html", erro = "A senha deve ser maior do que 6 caracteres.")
         else:
             try:
-                user = auth.create_user_with_email_and_password(email, senha)
-                session["user"] = auth.get_account_info(user["idToken"])
-                mynewuser = class_user.User(session['user']['users'][0]['localId'], nome, email, telefone)
+                # perdendo informações de antigas contas
+                session.clear()
+                auth.create_user_with_email_and_password(email, senha)
+                localid = session['user']['users'][0]['localId']
+                session["email"] = email
                 
-                db.child("users").update({mynewuser.nome:mynewuser.toDict()})
-                class_user.myuser = mynewuser
+                new_user_data = {
+                    "localid": localid,
+                    "nome": nome,
+                    "email": email,
+                    "telefone": telefone
+                }
+
+                # salva no banco de dados as informações do usuario
+                db.child("users").update({nome:new_user_data})
                 return redirect(url_for("homepage.home"))
             
             except Exception as ERRO:

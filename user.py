@@ -1,4 +1,4 @@
-class User():
+class User:
     def __init__(self, localid, nome, email, telefone):
         self.localid = localid
         self.nome = nome
@@ -12,5 +12,6 @@ class User():
             "email": self.email,
             "telefone": self.telefone
         }
-myuser = User(0,0,0,0)
 
+
+myuser = []
