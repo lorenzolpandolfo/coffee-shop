@@ -13,5 +13,3 @@ class User:
             "telefone": self.telefone
         }
 
-
-myuser = []
