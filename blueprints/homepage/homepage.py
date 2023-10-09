@@ -8,4 +8,4 @@ def home():
     if session:
         return render_template("homepage.html", USER=session)
     else:
-        return redirect(url_for("login.index"))
+        return render_template("homepage.html", USER=False)

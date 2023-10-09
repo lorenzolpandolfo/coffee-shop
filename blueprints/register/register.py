@@ -1,9 +1,9 @@
 from flask import Blueprint, render_template, redirect, request, url_for, session
 import crud
 
-
 db = crud.database
 auth = crud.auth
+admin_auth = crud.admin_auth
 
 register_bp = Blueprint("register", __name__, template_folder="templates")
 
@@ -39,10 +39,13 @@ def register():
                 db.child("users").update({nome:new_user_data})
                 print(session)
                 return redirect(url_for("homepage.home"))
-            
+
             except Exception as ERRO:
-                return render_template("register.html", erro = ERRO)
+                if "EMAIL_EXISTS" in str(ERRO):
+                    return render_template("register.html", erro = 'O email já está registrado')
+                
+                else:
+                    return render_template("register.html", erro = ERRO)
 
     else:
         return render_template("register.html")
-
