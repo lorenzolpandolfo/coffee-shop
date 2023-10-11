@@ -44,6 +44,9 @@ def criar_novo_item():
                 "preco": alt_cost
             })
     
+    estoque = input("> O item já está em estoque e pronto para ser comercializado? (S/n): ")
+    estoque = estoque in yes
+
     static_image_link = input("\n> Insira o link estático da imagem de destaque do item\n Caso CTRL + V não funcione, tente CTRL + SHIFT + V para colar: ")
 
     item = {
@@ -53,6 +56,7 @@ def criar_novo_item():
         "lactose": lactose,
         "vegan": vegan,
         "adicionais": alt_list,
+        "estoque": estoque,
         "image_link": static_image_link
     }
     # print(item['adicionais'][0])
