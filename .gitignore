@@ -152,3 +152,4 @@ cython_debug/
 #.idea/
 .vscode/launch.json
 servicekey.json
+firebaseconfig.json
