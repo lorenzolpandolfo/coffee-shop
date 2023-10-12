@@ -18,5 +18,3 @@ jobs:
       - name: Checkout do código
         uses: actions/checkout@v3
 
-      - name: Executar etapa de compilação
-        run: npm run build

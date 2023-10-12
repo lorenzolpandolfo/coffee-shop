@@ -4,7 +4,11 @@ from firebase_admin import auth as admin_auth
 from firebase_admin import credentials
 from firebase_admin import exceptions
 import json
+import os
 
+segredo = os.environ.get("MY_SECRET")
+
+print(segredo)
 
 with open('firebaseconfig.json', 'r') as arquivo:
     dados_secretos = json.load(arquivo)
