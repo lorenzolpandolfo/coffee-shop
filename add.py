@@ -20,10 +20,7 @@ def criar_novo_item():
     lactose = lactose in yes
     vegan = False
 
-    if lactose:
-        vegan = False
-
-    else:
+    if not lactose:
         vegan = input("> É vegano? (S/n): ").upper()
         vegan = vegan in yes
     
