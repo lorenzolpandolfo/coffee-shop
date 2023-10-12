@@ -6,14 +6,23 @@ on:
       - main
 
 jobs:
-  build:
+  test_env:
+    environment: atual
     runs-on: ubuntu-latest
 
     steps:
+      - name: setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      
+      - name: Test env vars for python
+        run: TEST_SECRET=${{ secrets.FIREBASE_CREDENTIALS }} python -c 'import os;print(os.environ['TEST_SECRET'])
+      
       - name: Configurar variáveis de ambiente
         env:
-          SERVICE_KEY: ${{ secrets.SERVICE_KEY }}
-          TESTE: ${{ secrets.NOVO_TESTE }}
+          SERVICE_KEY: ${{ secrets.SECRET_KEY_NOVO }}
+          TESTE: ${{ secrets.FIREBASE_CREDENTIALS }}
         run: echo "O segredo é $SERVICE_KEY"
         
       - name: Checkout do código

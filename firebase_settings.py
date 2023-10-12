@@ -6,10 +6,12 @@ from firebase_admin import exceptions
 import json
 import os
 
-segredo = os.environ.get("SERVICE_KEY")
-teste = os.environ.get("TESTE")
+print(os.environ)
+
+segredo = os.environ.get('TEST_SECRET')
+
 print(segredo)
-print(teste)
+
 
 with open('firebaseconfig.json', 'r') as arquivo:
     dados_secretos = json.load(arquivo)
