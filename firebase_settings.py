@@ -4,23 +4,16 @@ from firebase_admin import auth as admin_auth
 from firebase_admin import credentials
 from firebase_admin import exceptions
 import json
-import os
-
-print(os.environ)
-
-segredo = os.environ.get('TEST_SECRET')
-
-print(segredo)
 
 
-with open('firebaseconfig.json', 'r') as arquivo:
+with open('firebase_credentials.json', 'r') as arquivo:
     dados_secretos = json.load(arquivo)
 
-firebaseConfig = dados_secretos
+firebase_credentials = dados_secretos
 
-firebase = pyrebase.pyrebase.initialize_app(firebaseConfig)
+firebase = pyrebase.pyrebase.initialize_app(firebase_credentials)
 
-cred = credentials.Certificate("servicekey.json")
+cred = credentials.Certificate("service_key.json")
 firebase_admin.initialize_app(cred, {"databaseURL": dados_secretos["databaseURL"]})
 
 auth = firebase.auth()

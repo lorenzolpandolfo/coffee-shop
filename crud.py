@@ -12,7 +12,8 @@ if __name__ == '__main__':
     
     while keep:
         try:
-            escolha = int(input("1. Apagar todas as contas\n2. Registrar um novo item\n> Digite a opção desejada: "))
+            escolha = int(input("1. Apagar todas as contas\n2. Registrar um novo item\n3. Definir stand-by em um item existente\n" + 
+                                "4. Excluir um item existente\n5. Listar itens registrados\n\n> Digite a opção desejada: "))
 
             # apagar todas as contas (apenas para testes de registro de usuario)
             if escolha == 1:
