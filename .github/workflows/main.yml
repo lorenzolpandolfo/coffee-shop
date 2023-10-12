@@ -13,6 +13,7 @@ jobs:
       - name: Configurar variáveis de ambiente
         env:
           SERVICE_KEY: ${{ secrets.SERVICE_KEY }}
+          TESTE: ${{ secrets.NOVO_TESTE }}
         run: echo "O segredo é $SERVICE_KEY"
         
       - name: Checkout do código
