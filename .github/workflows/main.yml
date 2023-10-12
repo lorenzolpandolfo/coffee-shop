@@ -1,0 +1,22 @@
+name: Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Configurar variáveis de ambiente
+        env:
+          MY_SECRET: ${{ secrets.SERVICE_KEY }}
+        run: echo "O segredo é $MY_SECRET"
+        
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      - name: Executar etapa de compilação
+        run: npm run build
