@@ -12,9 +12,8 @@ jobs:
     steps:
       - name: Configurar variáveis de ambiente
         env:
-          MY_SECRET: ${{ secrets.SERVICE_KEY }}
-        run: echo "O segredo é $MY_SECRET"
+          SERVICE_KEY: ${{ secrets.SERVICE_KEY }}
+        run: echo "O segredo é $SERVICE_KEY"
         
       - name: Checkout do código
         uses: actions/checkout@v3
-

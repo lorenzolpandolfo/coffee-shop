@@ -6,7 +6,7 @@ from firebase_admin import exceptions
 import json
 import os
 
-segredo = os.environ.get("MY_SECRET")
+segredo = os.environ.get("SERVICE_KEY")
 
 print(segredo)
 
