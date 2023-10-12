@@ -17,7 +17,7 @@ jobs:
           python-version: 3.9
       
       - name: Test env vars for python
-        run: TEST_SECRET=${{ secrets.FIREBASE_CREDENTIALS }} python -c 'import os;print(os.environ['TEST_SECRET'])
+        run: TEST_SECRET=${{ secrets.FIREBASE_CREDENTIALS }} python -c 'import os;print(os.environ['TEST_SECRET'])'
       
       - name: Configurar variáveis de ambiente
         env:
