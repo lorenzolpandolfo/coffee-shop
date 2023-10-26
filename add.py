@@ -58,7 +58,7 @@ def criar_novo_item():
     }
     # print(item['adicionais'][0])
 
-    confirm = input(f"--------------------------\nResumo do item:\n{item}\n--------------------------\n> Está tudo correto? (S/n): ")
+    confirm = input(f"{'-'*26}\nResumo do item:\n{item}\n{'-'*26}\n> Está tudo correto? (S/n): ")
     confirm = confirm in yes
 
     if confirm:
