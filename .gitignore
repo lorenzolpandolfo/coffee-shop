@@ -153,3 +153,4 @@ cython_debug/
 .vscode/launch.json
 service_key.json
 firebaseconfig.json
+firebase_credentials.json
