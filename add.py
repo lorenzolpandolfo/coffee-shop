@@ -44,7 +44,16 @@ def criar_novo_item():
     estoque = input("> O item já está em estoque e pronto para ser comercializado? (S/n): ")
     estoque = estoque in yes
 
-    static_image_link = input("\n> Insira o link estático da imagem de destaque do item\n Caso CTRL + V não funcione, tente CTRL + SHIFT + V para colar: ")
+    static_image_link = input("> Insira o link estático da imagem de destaque do item\n Caso CTRL + V não funcione, tente CTRL + SHIFT + V para colar: ")
+
+    categoria = input(
+        f"\n{'-'*26} Categorias {'-'*26}\n" +
+        "(1) Lanches\n" +
+        "(2) Cafés\n" +
+        "(3) Doces\n" +
+        "(4) Bebidas\n" +
+        "\n[?] Em qual categoria o item pertence? "
+    )
 
     item = {
         "titulo": titulo,
@@ -54,11 +63,16 @@ def criar_novo_item():
         "vegan": vegan,
         "adicionais": alt_list,
         "estoque": estoque,
-        "image_link": static_image_link
+        "image_link": static_image_link,
+        "categoria": categoria
     }
     # print(item['adicionais'][0])
-
-    confirm = input(f"{'-'*26}\nResumo do item:\n{item}\n{'-'*26}\n> Está tudo correto? (S/n): ")
+    print(f"{'-'*10} Resumo do Item: {'-'*10}")
+    
+    for chave in item:
+        print(f"🞄 {chave}: {item[chave]}")
+    
+    confirm = input(f"{'-'*26}\n> Está tudo correto? (S/n): ")
     confirm = confirm in yes
 
     if confirm:
