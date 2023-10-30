@@ -14,6 +14,24 @@
     margin:6px 5px 0 0;
 }
 
+.fa-utensils {
+    font-size: 3vh;
+    margin:6px 5px 0 0;
+    
+}
+
+.fa-cart-shopping {
+    font-size: 3vh;
+    margin:6px 5px 0 0;
+    
+}
+
+.fa-circle-info {
+    font-size: 3vh;
+    margin:6px 5px 0 0;
+
+}
+
 .login > a {
     text-decoration: none;
     color: #000;
@@ -27,6 +45,17 @@
     display: flex;
     position: fixed;
     justify-content: space-between;
+}
+
+.bottom_bar {
+    width: 100%;
+    height: 4.5vh;
+    max-height: 50px;
+    background-color: #A0CED9;
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    bottom: 0;
 }
 
 .top_bar > h1 {
