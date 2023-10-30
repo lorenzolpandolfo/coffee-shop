@@ -11,26 +11,34 @@
     <div class="top_bar">
         <h1>Lo Café</h1>
     </div>
-    <div class="bottom_bar">
-    
-        <i class="fa-solid fa-utensils"></i>
-        <i class="fa-solid fa-cart-shopping"></i>
-        <div class="login">
-            {% if USER %}
-                <a href="/perfil">
-                    Meu perfil
-                    <i class="fa-solid fa-user"></i>
-                </a>
-            {% else %}
-                <a href="/login">
-                    Login
-                    <i class="fa-solid fa-user"></i>
-                </a>
-            {% endif %}
-        </div>
-        <i class="fa-solid fa-circle-info"></i>
-      
+    <div class="bottom_bar"> 
 
+        <a href="/">      
+            <i class="fa-solid fa-utensils"></i>
+            <p>Cardápio</p>
+        </a>
+
+        <a href="/carrinho">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <p>Carrinho</p>
+        </a>
+        
+        {% if USER %}
+        <a href="/perfil">      
+            <i class="fa-solid fa-user"></i>
+            <p>Perfil</p>
+        </a>
+        {% else %}
+        <a href="/login">
+            <p>Login</p>
+            <i class="fa-solid fa-user"></i>
+        </a>
+        {% endif %}
+        
+        <a href="/info">
+            <i class="fa-solid fa-circle-info"></i>
+            <p>Info</p>
+        </a>
     </div>
 
     <div class="main">
