@@ -36,7 +36,7 @@ def register():
                 }
 
                 # salva no banco de dados as informações do usuario
-                db.child("users").update({nome:new_user_data})
+                db.child("users").update({localid:new_user_data})
                 print(session)
                 return redirect(url_for("homepage.home"))
 

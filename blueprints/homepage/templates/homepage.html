@@ -36,14 +36,16 @@
                 <button>Promoções</button>
                 <button>Bebidas</button>
             </div>
-            <div class="item">
-                <img class='itemImage' src="https://ciclovivo.com.br/wp-content/uploads/2018/10/iStock-536613027.jpg">
-                <div class="itemInfo">
-                    <p class="posttopinfo">Título</p>
-                    <p class="posttopinfo" style="color:gray;"> usuario</p>
-                    <p style="color:white; margin:3px;">bio</p>
-                </div>   
-            </div>
+            {% for item in ITENS_CARDAPIO %}
+                <div class="item">
+                    <img class='itemImage' src="{{ITENS_CARDAPIO[item]['image_link']}}">
+                    <div class="itemInfo">
+                        <p style="font-size: 22px;">{{ITENS_CARDAPIO[item]['titulo']}}</p>
+                        <p style="font-size: 16px;">R${{ITENS_CARDAPIO[item]['preco']}}</p>
+                        <p style="font-size: 18px; margin:5px;">{{ITENS_CARDAPIO[item]['descricao']}}</p>
+                    </div>   
+                </div>
+            {% endfor %}
         </div>
         <div class="right_board">
             <p>oi{{USER['nome']}}</p>
