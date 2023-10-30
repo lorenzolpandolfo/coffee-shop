@@ -27,7 +27,10 @@
     margin-bottom: 4px;
 }
 
-.card input {
+.card input[type="email"],
+.card input[type="tel"],
+.card input[type="text"],
+.card input[type="password"] {
     display: block;
     margin: 0 auto 15px auto;
     width: 80%;
@@ -37,5 +40,18 @@
     background-color: #FFFFFC;
     color: #000;
     font-size: 12pt;  
+}
+
+.card input[type="submit"] {
+    display: block; /* Colocar os inputs em blocos para centralizar */
+    margin: 0 auto; /* Centralizar horizontalmente */
+    text-align: center; /* Centralizar texto dentro dos inputs */
+    width: 30%;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #FCF5C7;
+    color: #000;
+    font-size: 12pt;
 }
 

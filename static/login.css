@@ -20,7 +20,7 @@
     height: 70vh;
     width: 80vw;
     max-width: 450px;
-    max-height: 300px;
+    max-height: 380px;
     border-radius: 10px;
 }
 
@@ -35,9 +35,8 @@
 
 .card input[type="email"],
 .card input[type="password"] {
-    display: block; /* Colocar os inputs em blocos para centralizar */
-    margin: 0 auto; /* Centralizar horizontalmente */
-    text-align: center; /* Centralizar texto dentro dos inputs */
+    display: block; 
+    margin: 0 auto 15px auto;
     width: 80%;
     border: none;
     border-radius: 5px;
@@ -48,6 +47,18 @@
     
 }
 
+.card input[type="submit"] {
+    display: block; /* Colocar os inputs em blocos para centralizar */
+    margin: 0 auto; /* Centralizar horizontalmente */
+    text-align: center; /* Centralizar texto dentro dos inputs */
+    width: 20%;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #FCF5C7;
+    color: #000;
+    font-size: 12pt;
+}
 
 .teste {
     margin:50px;

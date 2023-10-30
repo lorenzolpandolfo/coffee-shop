@@ -1,9 +1,9 @@
 from flask import Blueprint, render_template, redirect, request, url_for, session
-import crud
+import firebase_settings
 
-db = crud.database
-auth = crud.auth
-admin_auth = crud.admin_auth
+db = firebase_settings.database
+auth = firebase_settings.auth
+admin_auth = firebase_settings.admin_auth
 
 register_bp = Blueprint("register", __name__, template_folder="templates")
 

@@ -12,14 +12,17 @@
         <div class="card">
             <p style="font-size: 30px; margin-top: 3vh; margin-bottom: 0.5vh;">Chega mais!</p>
             <p style="margin-bottom: 2.5vh;">Insira a sua senha e entre.</p>
-            <label>
-                <p>E-mail</p>
-                <input type="email" name="usuario">
-                <p>Senha</p>
-                <input type="password" name="senha">
-                <p>{{error}}</p>
-                <a class="teste" href="/registrar-se">Cadastre-se aqui!</a>
-            </label>
+            <form method="POST", action="#">
+                <label>
+                    <p>E-mail</p>
+                    <input type="email" name="email">
+                    <p>Senha</p>
+                    <input type="password" name="senha">
+                    <p>⠀{{erro}}</p>
+                    <input type="submit" value="Entrar">
+                    <a href="/registrar-se" style="float: left; margin:15px; text-decoration: none;">Cadastre-se aqui!</a>
+                </label>
+            </form>
         </div>
     </div>
 </body>

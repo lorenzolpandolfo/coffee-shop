@@ -5,7 +5,10 @@ database = firebase_settings.database
 storage = firebase_settings.storage
 admin_auth = firebase_settings.admin_auth
 
+# firebase_settings.auth.sign_in_with_email_and_password('lorenzopandolfo2004@gmail.com', 'senha123')
+
 import add
+import delete
 
 if __name__ == '__main__':
     keep = True
@@ -35,7 +38,7 @@ if __name__ == '__main__':
             
             # Remover completamente um item
             elif escolha == 4: 
-                pass
+                delete.listar_todos_itens()
             
             else:
                 keep = False
