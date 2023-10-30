@@ -13,42 +13,48 @@
         <h1>Lo Café</h1>
         <div class="login">
             {% if USER %}
-            <a href="/perfil">
-                Meu perfil
-                <i class="fa-solid fa-user"></i>
+                <a href="/perfil">
+                    Meu perfil
+                    <i class="fa-solid fa-user"></i>
                 </a>
+
             {% else %}
                 <a href="/login">
                     Login
                     <i class="fa-solid fa-user"></i>
                 </a>
-                {% endif %}
-            </div>
-        </div>
-        <div class="main">
-            <div class="boards">
-                <div class="board_top">
-                    <button>Cardápio</button>
-                    <button>Mais pedidos</button>
-                    <button>Promoções</button>
-                    <button>Bebidas</button>
-                </div>
-    
-                <div class="board">
-                    <div class="item_board">
-                        <div class="img-container">
-                            <img class="imagem" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/1200px-A_small_cup_of_coffee.JPG">
-                        </div>
-                    </div>
-                    <div class="clearf"></div>
-                </div>
-            </div>
-            <div class="right_board">
-                <p>oi{{USER['nome']}}</p>
-                <p>Sou o right_board!</p>
-            </div>
+
+            {% endif %}
         </div>
     </div>
+
+    <div class="main">
+        <div class="boards">
+            <div class="board_top">
+                <button>Cardápio</button>
+                <button>Mais pedidos</button>
+                <button>Promoções</button>
+                <button>Bebidas</button>
+            </div>
+
+            <div class="board">
+                <div class="item_board">
+                    <div class="img-container">
+                        <img class="imagem" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/1200px-A_small_cup_of_coffee.JPG">
+                    </div>
+                    <div class="textos">
+                        <p>Oi OI OIO O</p>
+                        <h1>Olá!aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right_board">
+            <p>oi{{USER['nome']}}</p>
+            <p>Sou o right_board!</p>
+        </div>
+    </div>
+    
     
 </body>
 </html>
