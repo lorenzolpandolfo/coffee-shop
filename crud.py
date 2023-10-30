@@ -9,6 +9,7 @@ admin_auth = firebase_settings.admin_auth
 
 import add
 import delete
+import read
 
 if __name__ == '__main__':
     keep = True
@@ -38,8 +39,12 @@ if __name__ == '__main__':
             
             # Remover completamente um item
             elif escolha == 4: 
-                delete.listar_todos_itens()
+                print(delete.delete(delete.selecionar_item()))
             
+            elif escolha == 5:
+                print('-'*15 + " Itens Registrados " + '-'*15)
+                read.ler_todos_itens()
+                print ('-'*49 +'\n')
             else:
                 keep = False
         
