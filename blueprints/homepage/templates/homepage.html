@@ -53,10 +53,16 @@
                 <div class="item">
                     <img class='itemImage' src="{{ITENS_CARDAPIO[item]['image_link']}}">
                     <div class="itemInfo">
-                        <p style="font-size: 22px;">{{ITENS_CARDAPIO[item]['titulo']}}</p>
-                        <p style="font-size: 16px;">R${{ITENS_CARDAPIO[item]['preco']}}</p>
+                        <p style="font-size: 22px; font-style: italic;">
+                            {{ITENS_CARDAPIO[item]['titulo']}}
+                            {% if ITENS_CARDAPIO[item]['vegan'] %}
+                                <i class="fa-solid fa-leaf" title="Vegano"></i>
+                            {% endif %}
+                        </p>
+                        <p style="font-size: 18px;">R${{ITENS_CARDAPIO[item]['preco']}}</p>
                         <p style="font-size: 18px; margin:5px;">{{ITENS_CARDAPIO[item]['descricao']}}</p>
-                    </div>   
+                    </div>
+                    
                 </div>
             {% endfor %}
         </div>

@@ -18,24 +18,24 @@
 }
 
 .fa-user {
-    font-size: 3vh;
+    font-size: max(20px, 3vh);
     margin:6px 5px 0 0;
 }
 
 .fa-utensils {
-    font-size: 3vh;
+    font-size: max(20px, 3vh);
     margin:6px 5px 0 0;
     
 }
 
 .fa-cart-shopping {
-    font-size: 3vh;
+    font-size: max(20px, 3vh);
     margin:6px 5px 0 0;
     
 }
 
 .fa-circle-info {
-    font-size: 3vh;
+    font-size: max(20px, 3vh);
     margin:6px 5px 0 0;
 
 }
@@ -59,6 +59,7 @@
     position: fixed;
     width: 100%;
     height: 6vh;
+    min-height: 45px;
     background-color: #A0CED9;
     display: flex;
     justify-content: center;
@@ -97,6 +98,13 @@
     float: left;
 }
 
+.itemInfo img {
+    object-fit: cover;
+    width: 50px;
+    height: 50px;
+}
+
+
 .board_top {
     background: #FFC09F;
     height: 10vh;
@@ -107,7 +115,7 @@
     margin: 7vh 0 0 2vh;
 }
 
-.board_top > button{
+.board_top button {
     text-align: center;
     margin: 10px;
     border: none;
@@ -133,7 +141,8 @@
     
     .board_top > button {
         font-size: 100%;
-        margin:2% 0 2% 2%;
+        padding: 1vw;
+        margin:2% 0 2% 1vw;
     }
 
     .board {
