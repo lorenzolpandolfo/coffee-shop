@@ -47,31 +47,45 @@
     background-color: #A0CED9;
     display: flex;
     position: fixed;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .top_bar > h1 {
     text-align: center;
     font-size: 3vh;
+    font-style: italic;
 }
 
-.bottom_bar {
+.bottom_bar_background {
     position: fixed;
     width: 100%;
     height: 6vh;
     min-height: 45px;
     background-color: #A0CED9;
     display: flex;
-    justify-content: center;
+    bottom: 0;
+
+}
+
+.bottom_bar {
+    position: fixed;
+    margin-left: 12.5%;
+    width: 75%;
+    height: 6vh;
+    min-height: 45px;
+    background-color: #A0CED9;
+    display: flex;
+    justify-content: space-between;
     bottom: 0;
     align-items: center;
     text-align: center;
+    z-index: 1;
 }
 
 .bottom_bar a {
     text-decoration: none;
     color: #000;
-    margin:15px;
+    margin:0;
 }
 
 
@@ -81,7 +95,7 @@
     height: 25vh;
     max-height: 200px;
     width: 60vw;
-    max-width: 1050px;
+    max-width: 800px;
     border-radius: 10px;
     padding: 10px;
 }
@@ -110,7 +124,7 @@
     height: 10vh;
     max-height: 65px;
     width: 60vw;
-    max-width: 1050px;
+    max-width: 800px;
     border-radius: 10px;
     margin: 7vh 0 0 2vh;
 }
