@@ -45,22 +45,10 @@
 
     <div class="main">
         <div class="boards">
+            <h1>Carrinho</h1>
+            <h1>Carrinho</h1>
             {% for item in ITENS_CARRINHO %}
-            <a href="/item/{{item}}" style="text-decoration: none; color: #000;">
-                <div class="item">
-                    <img class='itemImage' src="{{ITENS_CARRINHO[item]['image_link']}}">
-                    <div class="itemInfo">
-                        <p style="font-size: 22px; font-style: italic;">
-                            {{ITENS_CARRINHO[item]['titulo']}}
-                            {% if ITENS_CARRINHO[item]['vegan'] %}
-                                <i class="fa-solid fa-leaf" title="Vegano"></i>
-                            {% endif %}
-                        </p>
-                        <p style="font-size: 18px;">R${{ITENS_CARRINHO[item]['preco']}}</p>
-                        <p style="font-size: 18px; margin:5px;">{{ITENS_CARRINHO[item]['descricao']}}</p>
-                    </div>
-                </div>
-            </a>
+                <h3>{{item['titulo']}}</h3>
             {% endfor %}
         </div>
     </div>
