@@ -25,6 +25,7 @@ def home():
 
             if botao == "adicionarAoCarrinho":
                 session["carrinho"].append(item)
+                session.modified = True
         
         else:
             pass
@@ -32,6 +33,7 @@ def home():
         qtd_item_carrinho = len(session["carrinho"])
         print(session['carrinho'])
         print(qtd_item_carrinho)
+        # print(session)
         return render_template("homepage.html", USER=session, ITENS_CARDAPIO=get_item_data(), QTD_ITEM_CARRINHO=qtd_item_carrinho)
     else:
         return render_template("homepage.html", USER=False, ITENS_CARDAPIO=get_item_data())
