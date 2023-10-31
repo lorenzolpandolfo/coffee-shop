@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+.fa-chevron-down {
+    font-size: 0;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    background-color: #FCF5C7;
+    display: flex;
+    justify-content: center;
+}
+
+.fa-user {
+    font-size: max(20px, 3vh);
+    margin:6px 5px 0 0;
+}
+
+.fa-utensils {
+    font-size: max(20px, 3vh);
+    margin:6px 5px 0 0;
+    
+}
+
+.fa-cart-shopping {
+    font-size: max(20px, 3vh);
+    margin:6px 5px 0 0;
+    
+}
+
+.fa-circle-info {
+    font-size: max(20px, 3vh);
+    margin:6px 5px 0 0;
+
+}
+
+.top_bar {
+    width: 100%;
+    height: 4.5vh;
+    max-height: 50px;
+    background-color: #A0CED9;
+    display: flex;
+    position: fixed;
+    justify-content: center;
+}
+
+.top_bar > h1 {
+    text-align: center;
+    font-size: 3vh;
+    font-style: italic;
+}
+
+.bottom_bar_background {
+    position: fixed;
+    width: 100%;
+    height: 6vh;
+    min-height: 45px;
+    background-color: #A0CED9;
+    display: flex;
+    bottom: 0;
+
+}
+
+.bottom_bar {
+    position: fixed;
+    margin-left: 12.5%;
+    width: 75%;
+    height: 6vh;
+    min-height: 45px;
+    background-color: #A0CED9;
+    display: flex;
+    justify-content: space-between;
+    bottom: 0;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
+}
+
+.bottom_bar a {
+    text-decoration: none;
+    color: #000;
+    margin:0;
+}
+
+
+.item {
+    margin: 3vh 0 0 2vh;
+    background: #FFC09F;
+    height: 25vh;
+    max-height: 200px;
+    width: 60vw;
+    max-width: 800px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.itemText {
+    font-size: 22px;
+}
+
+.itemImage {
+    width: 140px;
+    height: 140px;
+    border-radius: 10%;
+    margin: 10px;
+    float: left;
+}
+
+.itemInfo img {
+    object-fit: cover;
+    width: 50px;
+    height: 50px;
+}

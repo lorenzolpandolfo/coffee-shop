@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, redirect, session, url_for, request
 import firebase_settings
+import json
 
 homepage_bp = Blueprint("homepage", __name__, template_folder="templates")
 
@@ -16,15 +17,21 @@ def home():
     if session:
         # inicializando o carrinho
         if "carrinho" not in session:
-            session["carrinho"] = []
+            session["carrinho"] = {}
 
 
         if request.method == 'POST':
             botao = request.form['botao']
-            item = request.form['item']
-
+            # para converter a string para o dicionario, precisa dessas correções abaixo
+            item = request.form['item'].replace("'", '"').replace("True", "true").replace("False", "false")
+            item = json.loads(item)
+            
             if botao == "adicionarAoCarrinho":
-                session["carrinho"].append(item)
+                """carrinho = session.get("carrinho", {})
+                titulo = item['titulo']
+                print(titulo)
+                print(carrinho)"""
+                session["carrinho"][item['titulo']] = item
                 session.modified = True
         
         else:
