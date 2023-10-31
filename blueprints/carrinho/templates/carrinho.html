@@ -44,11 +44,30 @@
     </div>
 
     <div class="main">
-        <div class="boards">
-            <h1>Carrinho</h1>
-            <h1>Carrinho</h1>
+        <div class="board">
+            <p class="title">Carrinho</p>
+            
             {% for item in ITENS_CARRINHO %}
-                <h3>{{item['titulo']}}</h3>
+            <form action="" method="POST">
+                <div class="item">
+                    <img class='itemImage' src="{{item['image_link']}}">
+                    <div class="itemInfo">
+                        <p style="font-size: 22px; font-style: italic;">
+                            {{item['titulo']}}
+                            {% if item['vegan'] %}
+                                <i class="fa-solid fa-leaf" title="Vegano"></i>
+                            {% endif %}
+                        </p>
+                        <p style="font-size: 18px;">R${{item['preco']}}</p>
+                        <p style="font-size: 18px; margin:5px;">{{item['descricao']}}</p>
+                        <input type="hidden" name="item" value="{{ item }}">
+                    </div>
+                    <button type="submit" name="botao" value="removerDoCarrinho">
+                        <i class="fa-solid fa-xmark" style="font-size: 20px;"></i>
+                        
+                    </button>
+                </div>
+            </form>
             {% endfor %}
         </div>
     </div>
