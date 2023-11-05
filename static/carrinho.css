@@ -12,9 +12,14 @@
 .main {
     width: 100%;
     height: 100%;
+    min-height: 100vh;
     background-color: #FCF5C7;
     display: flex;
     justify-content: center;
+}
+
+.title {
+    font-size: 38px;
 }
 
 .fa-user {
@@ -120,4 +125,42 @@
 
 .board {
     margin-top: 7vh;
+}
+
+@media screen and (max-width: 800px) {
+    .right_board {
+        display: none;
+    }
+    
+    .board_top {
+        display: flex;
+        width: 93vw;
+        margin: 7vh 0 0 0vh;
+    }
+    
+    .board_top > button {
+        font-size: 100%;
+        padding: 1vw;
+        margin:2% 0 2% 1vw;
+    }
+
+    .board {
+        box-sizing: border-box;
+        width: 80vw;
+    }
+    
+    .fa-chevron-down {
+        font-size: 4vh;
+        margin:0 0 0 5px;
+    }
+
+    .item {
+        margin: 2vh 0 0 0;
+        background: #FFC09F;
+        height: 93vh;
+        width: 93vw;
+        border-radius: 15px;
+        padding: 5px;
+    }
+
 }

@@ -24,6 +24,14 @@ $(document).ready(function(){
             contentType: 'application/json',
             data: {
                 item: removeButtonValue
+            },
+            success: function(response) {
+                if (response.quantidade_carrinho > 0) {
+                    $('.item_count').text("Carrinho (" + response.quantidade_carrinho + ")")
+                }
+                else {
+                    $('.item_count').text("Carrinho")
+                }
             }
         })
 

@@ -9,7 +9,7 @@
     <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="/static/main.js"></script>
 
-    <title>Lo Café - Editando item</title>
+    <title>Lo Café - Carrinho</title>
 </head>
 <body>
     <div class="top_bar">
@@ -25,7 +25,11 @@
         {% if USER %}
         <a href="/carrinho">
             <i class="fa-solid fa-cart-shopping"></i>
-            <p>Carrinho </p><p class="item_count"></p>
+            {% if QUANTIDADE_CARRINHO == 0 %}
+                <p class="item_count">Carrinho</p>
+            {% else %}
+                <p class="item_count">Carrinho ({{QUANTIDADE_CARRINHO}})</p>
+            {% endif %}
         </a>
         {% else %}
         <a href="/login">
@@ -60,7 +64,6 @@
             <p class="title">Carrinho</p>
             
             {% for item in ITENS_CARRINHO %}
-            
             <div class="item">
                 <img class='itemImage' src="{{item['image_link']}}">
                 <div class="itemInfo">
@@ -77,8 +80,15 @@
                     <i class="fa-solid fa-xmark" style="font-size: 20px;"></i>
                 </button>
             </div>
-            
             {% endfor %}
+            {% if ITENS_CARRINHO %}
+                <button>Limpar carrinho</button>
+                <button>Continuar</button>
+                <p>Valor total: R$ xx,xx</p>
+            {% else %}
+                <h2>O carrinho está vazio!</h2>
+                <p>Adicione alguns cafés aqui e volte mais tarde.</p>
+            {% endif %}
         </div>
     </div>
     

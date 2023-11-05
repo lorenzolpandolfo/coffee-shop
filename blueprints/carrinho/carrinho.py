@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, session, url_for, request
+from flask import Blueprint, render_template, redirect, session, url_for, request, jsonify
 import firebase_settings
 import json
 
@@ -28,5 +28,7 @@ def carrinho():
             session["carrinho"].remove(item)
             session.modified = True
 
+            return jsonify({'quantidade_carrinho': len(session["carrinho"])})
+
     
-    return render_template("carrinho.html", ITENS_CARRINHO=session['carrinho'])
+    return render_template("carrinho.html", USER=session, ITENS_CARRINHO=session['carrinho'], QUANTIDADE_CARRINHO=len(session["carrinho"]))
