@@ -10,7 +10,7 @@ $(document).ready(function(){
                 button_item_value: buttonValue
             },
             success: function(response) {
-                $('.btn').text(response.seconds)
+                $('.item_count').text("Carrinho (" + response.quantidade_carrinho + ")")
             }
         })
     })

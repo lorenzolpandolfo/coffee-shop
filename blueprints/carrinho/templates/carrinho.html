@@ -17,11 +17,18 @@
             <i class="fa-solid fa-utensils"></i>
             <p>Cardápio</p>
         </a>
-
+        
+        {% if USER %}
         <a href="/carrinho">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <p>Carrinho </p><p class="item_count"></p>
+        </a>
+        {% else %}
+        <a href="/login">
             <i class="fa-solid fa-cart-shopping"></i>
             <p>Carrinho</p>
         </a>
+        {% endif %}
         
         {% if USER %}
         <a href="/perfil">      
@@ -42,6 +49,7 @@
     </div>
     <div class="bottom_bar_background">
     </div>
+
 
     <div class="main">
         <div class="board">
