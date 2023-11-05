@@ -26,5 +26,8 @@ $(document).ready(function(){
                 item: removeButtonValue
             }
         })
+
+        var elementoPai = this.parentNode;
+        elementoPai.remove();
     })
 })
