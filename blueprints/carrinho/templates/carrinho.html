@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{url_for('static', filename='carrinho.css')}}">
     <script src="https://kit.fontawesome.com/6b3ea5ddf8.js" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="/static/main.js"></script>
+
     <title>Lo Café - Editando item</title>
 </head>
 <body>
@@ -56,26 +60,24 @@
             <p class="title">Carrinho</p>
             
             {% for item in ITENS_CARRINHO %}
-            <form action="" method="POST">
-                <div class="item">
-                    <img class='itemImage' src="{{item['image_link']}}">
-                    <div class="itemInfo">
-                        <p style="font-size: 22px; font-style: italic;">
-                            {{item['titulo']}}
-                            {% if item['vegan'] %}
-                                <i class="fa-solid fa-leaf" title="Vegano"></i>
-                            {% endif %}
-                        </p>
-                        <p style="font-size: 18px;">R${{item['preco']}}</p>
-                        <p style="font-size: 18px; margin:5px;">{{item['descricao']}}</p>
-                        <input type="hidden" name="item" value="{{ item }}">
-                    </div>
-                    <button type="submit" name="botao" value="removerDoCarrinho">
-                        <i class="fa-solid fa-xmark" style="font-size: 20px;"></i>
-                        
-                    </button>
+            
+            <div class="item">
+                <img class='itemImage' src="{{item['image_link']}}">
+                <div class="itemInfo">
+                    <p style="font-size: 22px; font-style: italic;">
+                        {{item['titulo']}}
+                        {% if item['vegan'] %}
+                            <i class="fa-solid fa-leaf" title="Vegano"></i>
+                        {% endif %}
+                    </p>
+                    <p style="font-size: 18px;">R${{item['preco']}}</p>
+                    <p style="font-size: 18px; margin:5px;">{{item['descricao']}}</p>
                 </div>
-            </form>
+                <button class="remove_button" value="{{ item }}">
+                    <i class="fa-solid fa-xmark" style="font-size: 20px;"></i>
+                </button>
+            </div>
+            
             {% endfor %}
         </div>
     </div>

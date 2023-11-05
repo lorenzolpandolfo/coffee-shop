@@ -20,10 +20,10 @@ def home():
             session["carrinho"] = []
             
 
-        button_value = request.args.get('button_item_value')
 
         if request.method == "GET":
-
+            button_value = request.args.get('button_item_value')
+            
             # adicionar o item ao carrinho usando ajax jquery
             if button_value:
                 item = button_value.replace("'", '"').replace("True", "true").replace("False", "false")

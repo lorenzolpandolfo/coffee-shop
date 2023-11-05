@@ -14,4 +14,17 @@ $(document).ready(function(){
             }
         })
     })
+
+    $('.remove_button').click(function(){
+        var removeButtonValue = $(this).attr('value');
+        
+        $.ajax({
+            url: '',
+            type: 'get',
+            contentType: 'application/json',
+            data: {
+                item: removeButtonValue
+            }
+        })
+    })
 })
