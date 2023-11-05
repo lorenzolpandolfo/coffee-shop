@@ -25,7 +25,11 @@
         {% if USER %}
         <a href="/carrinho">
             <i class="fa-solid fa-cart-shopping"></i>
-            <p class="item_count">Carrinho ({{QTD_ITEM_CARRINHO}})</p>
+            {% if QUANTIDADE_CARRINHO == 0 %}
+                <p class="item_count">Carrinho</p>
+            {% else %}
+                <p class="item_count">Carrinho ({{QUANTIDADE_CARRINHO}})</p>
+            {% endif %}
         </a>
         {% else %}
         <a href="/login">
