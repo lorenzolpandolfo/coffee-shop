@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, session, url_for, request
+from flask import Blueprint, render_template, redirect, session, url_for, request, jsonify
 import firebase_settings
 import json
 
@@ -18,21 +18,22 @@ def home():
         # inicializando o carrinho
         if "carrinho" not in session:
             session["carrinho"] = []
+            
+        button_value = request.args.get('button_item_value')
 
-        if request.method == 'POST':
-            botao = request.form['botao']
-            item = request.form['item']
+        if request.method == "GET":
 
-            # para converter a string para o dicionario, precisa dessas correções abaixo
-            item = request.form['item'].replace("'", '"').replace("True", "true").replace("False", "false")
-            item = json.loads(item)
+            # adicionar o item ao carrinho usando ajax jquery
+            if button_value:
+                item = button_value.replace("'", '"').replace("True", "true").replace("False", "false")
+                item = json.loads(item)
 
-            if botao == "adicionarAoCarrinho":
                 session["carrinho"].append(item)
                 session.modified = True
-        
-        else:
-            pass
+                print('item adicionado!')
+                print(session["carrinho"])
+
+
 
         qtd_item_carrinho = len(session["carrinho"])
         return render_template("homepage.html", USER=session, ITENS_CARDAPIO=get_item_data(), QTD_ITEM_CARRINHO=qtd_item_carrinho)
