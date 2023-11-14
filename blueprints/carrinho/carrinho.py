@@ -31,8 +31,9 @@ def carrinho():
             checkbox_value = request.args.get('checkboxValue')
 
             session["carrinho"][int(checkbox_item_id) - 1]["adicionais"][int(checkbox_adicional_id) - 1]["status"] = checkbox_value
+            session.modified = True
         
-            print(session["carrinho"])
+            # print(session["carrinho"][int(checkbox_item_id) - 1]["adicionais"])
 
 
     
