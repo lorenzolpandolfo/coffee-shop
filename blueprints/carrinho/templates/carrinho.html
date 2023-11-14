@@ -76,6 +76,17 @@
                     <p style="font-size: 18px;">R${{item['preco']}}</p>
                     <p style="font-size: 18px; margin:5px;">{{item['descricao']}}</p>
                 </div>
+
+                {% if item['adicionais'] %}
+                
+                    {% for adicional in item['adicionais']%}
+                        <div>
+                            <input style="float: left; margin-top: 4px; margin-right: 5px;" type="checkbox" value="{{adicional['nome']}}">
+                            <p> {{adicional['nome']}} + R${{adicional['preco']}}</p>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
                 <button class="remove_button" value="{{ item }}">
                     <i class="fa-solid fa-xmark" style="font-size: 20px;"></i>
                 </button>
@@ -83,8 +94,7 @@
             {% endfor %}
             {% if ITENS_CARRINHO %}
                 <button>Limpar carrinho</button>
-                <button>Continuar</button>
-                <p>Valor total: R$ xx,xx</p>
+                <button>Finalizar compra</button>
             {% else %}
                 <h2>O carrinho está vazio!</h2>
                 <p>Adicione alguns cafés aqui e volte mais tarde.</p>
