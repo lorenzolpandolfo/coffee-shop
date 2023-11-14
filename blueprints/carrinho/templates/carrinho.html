@@ -81,13 +81,13 @@
                     {% for adicional in item['adicionais']%}
                         <div id="{{loop.index}}">
                             <input style="float: left; margin-top: 4px; margin-right: 5px;"
-                            class="checkbox" type="checkbox" value="{{adicional['nome']}}">
+                            class="checkbox" type="checkbox" name="{{adicional['nome']}}" value="false">
                             <p> {{adicional['nome']}} por +R${{adicional['preco']}}</p>
                         </div>
                     {% endfor %}
                 {% endif %}
 
-                <button class="remove_button" value="{{loop.index}}">
+                <button class="remove_button" value="{{item}}">
                     <i class="fa-solid fa-xmark" style="font-size: 20px;"></i>
                 </button>
             </div>
@@ -98,7 +98,7 @@
             {% if ITENS_CARRINHO %}
             <div class="interagir_carrinho">
                 <button>Limpar carrinho</button>
-                <button>Finalizar compra</button>
+                <button class="checkbox">Finalizar compra</button>
             </div>
             <div class="carrinho_vazio" style="display: none;">
                 <h2>O carrinho está vazio!</h2>

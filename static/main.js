@@ -14,16 +14,18 @@ $(document).ready(function(){
             }
         })
     })
-
+    
     $('.remove_button').click(function(){
+        var buttonValue = $(this).attr('value');
         $.ajax({
             url: '',
             type: 'get',
             contentType: 'application/json',
             data: {
-                item: this.parentNode.id
+                item: buttonValue
             },
             success: function(response) {
+
                 if (response.quantidade_carrinho > 0) {
                     $('.item_count').text("Carrinho (" + response.quantidade_carrinho + ")")
                     $('.carrinho_vazio').hide();
@@ -36,8 +38,7 @@ $(document).ready(function(){
                 }
             }
         })
-
-        var elementoPai = this.parentNode;
-        elementoPai.remove();
+        this.parentNode.remove()
+        
     })
 })

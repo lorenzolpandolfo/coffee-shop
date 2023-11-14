@@ -9,21 +9,19 @@ carrinho_bp = Blueprint("carrinho", __name__, template_folder="templates")
 def carrinho():
     if request.method == "GET":
         button_value = request.args.get('item')
-
+        print(button_value)
         # Removendo item do carrinho
         if button_value:
-            session["carrinho"].pop(int(button_value) - 1)
-            session.modified = True
-
-            return jsonify({'quantidade_carrinho': len(session["carrinho"])})
-
-            """item = button_value.replace("'", '"').replace("True", "true").replace("False", "false")
+            item = button_value.replace("'", '"').replace("True", "true").replace("False", "false")
             item = json.loads(item)
 
+            # print(session["carrinho"])
+            print('removendo ', item)
             session["carrinho"].remove(item)
             session.modified = True
 
-            return jsonify({'quantidade_carrinho': len(session["carrinho"])})"""
+            return jsonify({'quantidade_carrinho': len(session["carrinho"])})
+            
     
         checkbox_item_id = request.args.get('itemId')
         if checkbox_item_id:
