@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{url_for('static', filename='carrinho.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='homepage.css')}}">
     <script src="https://kit.fontawesome.com/6b3ea5ddf8.js" crossorigin="anonymous"></script>
 
     <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="/static/main.js"></script>
 
-    <title>Lo Café - Carrinho</title>
+    <title>Lo Café - Início</title>
 </head>
 <body>
     <div class="top_bar">
@@ -58,59 +58,27 @@
     <div class="bottom_bar_background">
     </div>
 
-
     <div class="main">
-        <div class="board">
-            <p class="title">Carrinho</p>
-            
+        <div class="boards">
             {% for item in ITENS_CARRINHO %}
-            <div class="item" id="{{loop.index}}">
-                <img class='itemImage' src="{{item['image_link']}}">
+            <div class="item">
+                <img class='itemImage' src="{{ITENS_CARDAPIO[item]['image_link']}}">
                 <div class="itemInfo">
                     <p style="font-size: 22px; font-style: italic;">
-                        {{item['titulo']}}
-                        {% if item['vegan'] %}
+                        {{ITENS_CARDAPIO[item]['titulo']}}
+                        {% if ITENS_CARDAPIO[item]['vegan'] %}
                             <i class="fa-solid fa-leaf" title="Vegano"></i>
                         {% endif %}
                     </p>
-                    <p style="font-size: 18px;">R${{item['preco']}}</p>
-                    <p style="font-size: 18px; margin:5px;">{{item['descricao']}}</p>
+                    <p style="font-size: 18px;">R${{ITENS_CARDAPIO[item]['preco']}}</p>
+                    <p style="font-size: 18px; margin:5px;">{{ITENS_CARDAPIO[item]['descricao']}}</p>
+                    <input type="hidden" name="item" value="{{ITENS_CARDAPIO[item]}}">
+                    <button class="btn" value="{{ITENS_CARDAPIO[item]}}">
+                        <i class="fa-solid fa-cart-shopping" style="font-size: 15px;"></i>
+                    </button>
                 </div>
-
-                {% if item['adicionais'] %}
-                    {% for adicional in item['adicionais']%}
-                        <div id="{{loop.index}}">
-                            <input style="float: left; margin-top: 4px; margin-right: 5px;"
-                            class="checkbox" type="checkbox" value="{{adicional['nome']}}">
-                            <p> {{adicional['nome']}} por +R${{adicional['preco']}}</p>
-                        </div>
-                    {% endfor %}
-                {% endif %}
-
-                <button class="remove_button" value="{{loop.index}}">
-                    <i class="fa-solid fa-xmark" style="font-size: 20px;"></i>
-                </button>
             </div>
             {% endfor %}
-
-            <script src="/static/checkbox.js"></script>
-
-            {% if ITENS_CARRINHO %}
-            <div class="interagir_carrinho">
-                <button>Limpar carrinho</button>
-                <button>Finalizar compra</button>
-            </div>
-            <div class="carrinho_vazio" style="display: none;">
-                <h2>O carrinho está vazio!</h2>
-                <p>Adicione alguns cafés aqui e volte mais tarde.</p>
-            </div>
-            {% else %}
-            <div class="carrinho_vazio">
-                <h2>O carrinho está vazio!</h2>
-                <p>Adicione alguns cafés aqui e volte mais tarde.</p>
-            </div>
-
-            {% endif %}
         </div>
     </div>
     

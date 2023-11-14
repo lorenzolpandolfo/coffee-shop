@@ -19,8 +19,6 @@ def home():
         if "carrinho" not in session:
             session["carrinho"] = []
             
-
-
         if request.method == "GET":
             button_value = request.args.get('button_item_value')
             

@@ -16,21 +16,23 @@ $(document).ready(function(){
     })
 
     $('.remove_button').click(function(){
-        var removeButtonValue = $(this).attr('value');
-        
         $.ajax({
             url: '',
             type: 'get',
             contentType: 'application/json',
             data: {
-                item: removeButtonValue
+                item: this.parentNode.id
             },
             success: function(response) {
                 if (response.quantidade_carrinho > 0) {
                     $('.item_count').text("Carrinho (" + response.quantidade_carrinho + ")")
+                    $('.carrinho_vazio').hide();
+                    $('.interagir_carrinho').show()
                 }
                 else {
                     $('.item_count').text("Carrinho")
+                    $('.carrinho_vazio').show();
+                    $('.interagir_carrinho').hide()
                 }
             }
         })

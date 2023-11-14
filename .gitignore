@@ -154,3 +154,4 @@ cython_debug/
 service_key.json
 firebaseconfig.json
 firebase_credentials.json
+encrypt_key.py
