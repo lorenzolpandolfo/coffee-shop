@@ -7,7 +7,7 @@
     <script src="https://kit.fontawesome.com/6b3ea5ddf8.js" crossorigin="anonymous"></script>
 
     <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="/static/main.js"></script>
+    <script src="/static/checkbox.js"></script>
 
     <title>Lo Café - Carrinho</title>
 </head>
@@ -62,8 +62,10 @@
     <div class="main">
         <div class="board">
             <p class="title">Editando o pedido</p>
+            <p style="font-style: italic;">Selecione os adicionais para um café do seu jeito.</p>
             
             {% for item in ITENS_CARRINHO %}
+            {% if item['adicionais'] %}
             <div class="item" id="{{loop.index}}">
                 <img class='itemImage' src="{{item['image_link']}}">
                 <div class="itemInfo">
@@ -87,6 +89,7 @@
                     {% endfor %}
                 {% endif %}
             </div>
+            {% endif %}
             {% endfor %}
             
             <p class="title">Alguma observação?</p>
@@ -95,7 +98,7 @@
             {% if ITENS_CARRINHO %}
             <div class="interagir_carrinho">
                 <button>Limpar carrinho</button>
-                <button class="checkbox">Realizar pagamento</button>
+                <button onclick="window.location.href='/pagamento'">Próximo</button>
             </div>
             <div class="carrinho_vazio" style="display: none;">
                 <h2>O carrinho está vazio!</h2>

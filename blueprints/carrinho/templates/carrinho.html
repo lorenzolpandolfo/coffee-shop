@@ -63,8 +63,8 @@
         <div class="board">
             <p class="title">Carrinho</p>
             <p style="font-style: italic;">Não esqueça de nada!</p>
-            
-            {% for item in ITENS_CARRINHO %}
+
+            {% for item in ITENS_CARRINHO %}             
             <div class="item" id="{{loop.index}}">
                 <img class='itemImage' src="{{item['image_link']}}">
                 <div class="itemInfo">
@@ -83,11 +83,12 @@
                 </button>
             </div>
             {% endfor %}
+            <p>Subtotal: R${{soma_precos}}</p>
 
             {% if ITENS_CARRINHO %}
             <div class="interagir_carrinho">
                 <button>Limpar carrinho</button>
-                <button class="checkbox">Próximo</button>
+                <button onclick="window.location.href='/editando'">Próximo</button>
             </div>
             <div class="carrinho_vazio" style="display: none;">
                 <h2>O carrinho está vazio!</h2>
