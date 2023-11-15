@@ -62,14 +62,19 @@
     <div class="main">
         <div class="board">
             <p class="title">Entrega</p>
+            <p style="font-style: italic;">Escolha a forma de entrega</p>
             <button>Retirar na loja</button>
             <button>Entregar no endereço</button>
-            <div class="item">
-                <p style="font-size: 24px;">Endereço da loja</p>
-                <i class="fa-solid fa-store" style="font-size: 24px;"></i>
-                <p>Rua Brasil, número 120</p>
-                <p>Centro Histórico</p>
-            </div>
+            {% for loja in LOJAS %}
+            <a href="#">
+                <div class="item">
+                    <i class="fa-solid fa-store" style="font-size: 24px;"></i>
+                    <p>{{loja['rua']}}, número {{loja['numero']}}</p>
+                    <p>{{loja['bairro']}}</p>
+                </div>
+            </a>
+            {% endfor %}
+            
     </div>
     
     

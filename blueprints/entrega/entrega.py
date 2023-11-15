@@ -8,7 +8,7 @@ database = firebase_settings.database
 
 @entrega_bp.route("/entrega", methods=["POST", "GET"])
 def entrega():
-    database.get("shops").val()
+    
     """if request.method == "GET":
 
         # recebendo uma alteração de item no carrinho
@@ -29,4 +29,5 @@ def entrega():
     return render_template("entrega.html",
                            USER=session,
                            ITENS_CARRINHO=session['carrinho'],
-                           QUANTIDADE_CARRINHO=len(session["carrinho"]))
+                           QUANTIDADE_CARRINHO=len(session["carrinho"]),
+                           LOJAS=database.child("stores").get().val())
