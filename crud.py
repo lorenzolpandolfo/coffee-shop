@@ -10,6 +10,7 @@ admin_auth = firebase_settings.admin_auth
 import add
 import delete
 import read
+import register_store
 
 if __name__ == '__main__':
     keep = True
@@ -17,7 +18,7 @@ if __name__ == '__main__':
     while keep:
         try:
             escolha = int(input("1. Apagar todas as contas\n2. Registrar um novo item\n3. Definir stand-by em um item existente\n" + 
-                                "4. Excluir um item existente\n5. Listar itens registrados\n\n> Digite a opção desejada: "))
+                                "4. Excluir um item existente\n5. Listar itens registrados\n6. Registrar nova loja\n\n> Digite a opção desejada: "))
 
             # apagar todas as contas (apenas para testes de registro de usuario)
             if escolha == 1:
@@ -45,6 +46,9 @@ if __name__ == '__main__':
                 print('-'*15 + " Itens Registrados " + '-'*15)
                 read.ler_todos_itens()
                 print ('-'*49 +'\n')
+            
+            elif escolha == 6:
+                print(register_store.adicionar_nova_loja(register_store.criar_nova_loja()))
             else:
                 keep = False
         
