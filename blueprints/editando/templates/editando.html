@@ -61,7 +61,7 @@
 
     <div class="main">
         <div class="board">
-            <p class="title">Carrinho</p>
+            <p class="title">Editando o pedido</p>
             
             {% for item in ITENS_CARRINHO %}
             <div class="item" id="{{loop.index}}">
@@ -86,21 +86,13 @@
                         </div>
                     {% endfor %}
                 {% endif %}
-
-                <button class="remove_button" value="{{item}}">
-                    <i class="fa-solid fa-xmark" style="font-size: 20px;"></i>
-                </button>
             </div>
             {% endfor %}
-
-            <script>
-                
-            </script>
 
             {% if ITENS_CARRINHO %}
             <div class="interagir_carrinho">
                 <button>Limpar carrinho</button>
-                <button class="checkbox">Próximo</button>
+                <button class="checkbox">Realizar pagamento</button>
             </div>
             <div class="carrinho_vazio" style="display: none;">
                 <h2>O carrinho está vazio!</h2>
@@ -111,8 +103,9 @@
                 <h2>O carrinho está vazio!</h2>
                 <p>Adicione alguns cafés aqui e volte mais tarde.</p>
             </div>
-
             {% endif %}
+            <p>Alguma observação?</p>
+            <textarea placeholder="Ex: não muito quente, sem gelo, dois canudos etc"></textarea>
         </div>
     </div>
     
