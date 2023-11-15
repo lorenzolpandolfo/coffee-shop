@@ -62,6 +62,7 @@
     <div class="main">
         <div class="board">
             <p class="title">Carrinho</p>
+            <p style="font-style: italic;">Não esqueça de nada!</p>
             
             {% for item in ITENS_CARRINHO %}
             <div class="item" id="{{loop.index}}">
@@ -77,25 +78,11 @@
                     <p style="font-size: 18px; margin:5px;">{{item['descricao']}}</p>
                 </div>
 
-                {% if item['adicionais'] %}
-                    {% for adicional in item['adicionais']%}
-                        <div id="{{loop.index}}">
-                            <input style="float: left; margin-top: 4px; margin-right: 5px;"
-                            class="checkbox" type="checkbox" name="{{adicional['nome']}}" value="false">
-                            <p> {{adicional['nome']}} por +R${{adicional['preco']}}</p>
-                        </div>
-                    {% endfor %}
-                {% endif %}
-
                 <button class="remove_button" value="{{item}}">
                     <i class="fa-solid fa-xmark" style="font-size: 20px;"></i>
                 </button>
             </div>
             {% endfor %}
-
-            <script>
-                
-            </script>
 
             {% if ITENS_CARRINHO %}
             <div class="interagir_carrinho">
