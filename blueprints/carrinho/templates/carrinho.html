@@ -85,11 +85,11 @@
             {% endfor %}
             
             {% if ITENS_CARRINHO %}
-            <div class="interagir_carrinho">
+            <div style="display: flex; align-items: center;" class="interagir_carrinho">
                 <p>Subtotal: R$</p>
                 <p class="subtotal">{{soma_precos}}</p>
             </div>
-            
+
             <div class="interagir_carrinho">
                 <button>Limpar carrinho</button>
                 <button onclick="window.location.href='/editando'">Próximo</button>
