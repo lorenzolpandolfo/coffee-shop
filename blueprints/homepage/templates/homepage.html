@@ -7,7 +7,7 @@
     <script src="https://kit.fontawesome.com/6b3ea5ddf8.js" crossorigin="anonymous"></script>
 
     <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="/static/main.js"></script>
+    <script src="/static/add_n_remove_cart.js"></script>
 
     <title>Lo Café - Início</title>
 </head>
@@ -79,7 +79,7 @@
                     <p style="font-size: 18px;">R${{ITENS_CARDAPIO[item]['preco']}}</p>
                     <p style="font-size: 18px; margin:5px;">{{ITENS_CARDAPIO[item]['descricao']}}</p>
                     <input type="hidden" name="item" value="{{ITENS_CARDAPIO[item]}}">
-                    <button class="btn" value="{{ITENS_CARDAPIO[item]}}">
+                    <button class="add_button" value="{{ITENS_CARDAPIO[item]}}">
                         <i class="fa-solid fa-cart-shopping" style="font-size: 15px;"></i>
                     </button>
                 </div>
