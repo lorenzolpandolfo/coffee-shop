@@ -37,7 +37,7 @@ $(document).ready(function(){
                 console.log('thisItemPrice:', thisItemPrice);
                 console.log('newSubtotal:', newSubtotal);
 
-                $('.subtotal').text(newSubtotal)
+                $('.subtotal').text(newSubtotal.toFixed(2))
 
                 if (response.quantidade_carrinho > 0) {
                     $('.item_count').text("Carrinho (" + response.quantidade_carrinho + ")")
