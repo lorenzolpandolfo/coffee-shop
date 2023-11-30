@@ -6,6 +6,7 @@ from blueprints.carrinho.carrinho import carrinho_bp
 from blueprints.pagamento.pagamento import pagamento_bp
 from blueprints.editando.editando import editando_bp
 from blueprints.entrega.entrega import entrega_bp
+from blueprints.perfil.perfil import perfil_bp
 
 app = Flask(__name__)
 app.secret_key = 'secret'
@@ -17,6 +18,7 @@ app.register_blueprint(carrinho_bp)
 app.register_blueprint(pagamento_bp)
 app.register_blueprint(editando_bp)
 app.register_blueprint(entrega_bp)
+app.register_blueprint(perfil_bp)
 
 if __name__ == '__main__':
     app.run(debug=True)
