@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, redirect, request, url_for, session
-import firebase_settings
+from crud_modules import firebase_settings
 
 db = firebase_settings.database
 auth = firebase_settings.auth

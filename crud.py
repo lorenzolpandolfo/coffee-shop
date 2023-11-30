@@ -1,16 +1,12 @@
-import firebase_settings
+from crud_modules import firebase_settings, add, delete, register_store, read
 
 auth = firebase_settings.auth
 database = firebase_settings.database
 storage = firebase_settings.storage
 admin_auth = firebase_settings.admin_auth
 
-# firebase_settings.auth.sign_in_with_email_and_password('lorenzopandolfo2004@gmail.com', 'senha123')
 
-import add
-import delete
-import read
-import register_store
+# firebase_settings.auth.sign_in_with_email_and_password('lorenzopandolfo2004@gmail.com', 'senha123')
 
 if __name__ == '__main__':
     keep = True

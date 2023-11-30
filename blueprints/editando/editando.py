@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, redirect, session, url_for, request, jsonify
-import firebase_settings
+from crud_modules import firebase_settings
 import json
 
 editando_bp = Blueprint("editando", __name__, template_folder="templates")
