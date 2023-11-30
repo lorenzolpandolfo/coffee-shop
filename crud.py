@@ -4,9 +4,14 @@ auth = firebase_settings.auth
 database = firebase_settings.database
 storage = firebase_settings.storage
 admin_auth = firebase_settings.admin_auth
+admin_db = firebase_settings.admin_db
 
 
-# firebase_settings.auth.sign_in_with_email_and_password('lorenzopandolfo2004@gmail.com', 'senha123')
+def testar_conexao():
+    ref = admin_db.reference('/')
+    #return ref.listen(callback)
+    return print(ref.get())
+    
 
 if __name__ == '__main__':
     keep = True
@@ -32,7 +37,7 @@ if __name__ == '__main__':
 
             # Colocar item em stand-by (falta de estoque)
             elif escolha == 3:
-                pass
+                testar_conexao()
             
             # Remover completamente um item
             elif escolha == 4: 

@@ -6,9 +6,9 @@ homepage_bp = Blueprint("homepage", __name__, template_folder="templates")
 
 # Carregando os cafés para aparecerem na homepage
 def get_item_data():
-    database = firebase_settings.database
+    database = firebase_settings.admin_db
     # print(database.child('itens').get().val()['Capuccino'])
-    return database.child('itens').get().val()
+    return database.reference("/itens").get()
 
 
 @homepage_bp.route("/", methods=['POST', 'GET'])

@@ -1,9 +1,11 @@
 from crud_modules import firebase_settings
-database = firebase_settings.database
+database = firebase_settings.admin_db
 
 def adicionar_novo_item(item):
     try:
-        database.child("itens").update({item['titulo']:item})
+        ref = database.reference("/itens")
+        ref.push(item['titulo']).set(item)
+        # database.child("itens").update({item['titulo']:item})
         return f"[!] O item {item['titulo']} foi adicionado com sucesso ao banco de dados.\n"
     
     except Exception as erro:

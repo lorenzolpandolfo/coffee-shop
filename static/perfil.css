@@ -26,7 +26,7 @@
 
 .texto {
     font-size: 21px;
-}
+}   
 
 .fa-user {
     font-size: max(20px, 3vh);
@@ -104,7 +104,7 @@
     margin: 2vh 0 0 2vh;
     background: #FFC09F;
     height: 25vh;
-    max-height: 200px;
+    max-height: 300px;
     width: 60vw;
     max-width: 800px;
     border-radius: 10px;
