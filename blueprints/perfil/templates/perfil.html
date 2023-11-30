@@ -60,7 +60,6 @@
 
     <div class="main">
         <div class="boards">
-
             <p style="font-size: 30px;text-align: center;margin-top: 5vh;">Informações pessoais</p>
             <div class="item">
                 <span class="texto">
@@ -81,12 +80,34 @@
                     <p>Referência: grande prédio azul</p>
                 </span>
             </div>
+            <div class="item">
+                <span class="texto">
+                    <p style="font-size: 30px;">Casa</p>
+                    <p>Rua Brasil, número 120</p>
+                    <p>Bairro Palmeiras</p>
+                    <p>CEP 90440190</p>
+                    <p>Complemento: Lado 7A</p>
+                    <p>Referência: grande prédio azul</p>
+                </span>
+            </div>
             <a href="/registrar-endereço">
                 <p>Registrar novo endereço</p>
-
             </a>
             
+            <p style="font-size: 30px;text-align: center;margin-top: 5vh;">Cartões registrados</p>
+            <div class="item">
+                <span class="texto">
+                    <p style="font-size: 30px;">Cartão do Lorenzo</p>
+                    <p>Nome:        {{USER["nome"]}}</p>
+                    <p>E-mail:      {{USER["email"]}}</p>
+                    <p>Telefone:    {{USER["telefone"]}}</p>
+                </span>
             </div>
+
+            <a href="/registrar-cartao">
+                <p style="margin-bottom: 25px;">Registrar novo cartão</p>
+            </a>
+            
         </div>
     </div>
     

@@ -16,7 +16,7 @@
     background-color: #FCF5C7;
     display: flex;
     justify-content: center;
-    margin-bottom: 45px;
+    margin-bottom: 6vh;
 }
 
 .title {
@@ -101,7 +101,7 @@
 
 
 .item {
-    margin: 3vh 0 0 2vh;
+    margin: 2vh 0 0 2vh;
     background: #FFC09F;
     height: 25vh;
     max-height: 200px;
