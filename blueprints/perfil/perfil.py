@@ -2,13 +2,13 @@ from flask import Blueprint, render_template, redirect, session, url_for, reques
 from crud_modules import firebase_settings
 import json
 
-database = firebase_settings.database
+database = firebase_settings.admin_db
 
 perfil_bp = Blueprint("perfil", __name__, template_folder="templates")
 
 
 def get_user_info(localId):
-    usuarios = database.child("users").get().val()
+    usuarios = database.reference("/users").get()
     return usuarios[localId]
 
 

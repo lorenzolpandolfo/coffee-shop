@@ -4,7 +4,7 @@ import json
 
 entrega_bp = Blueprint("entrega", __name__, template_folder="templates")
 
-database = firebase_settings.database
+database = firebase_settings.admin_db
 
 @entrega_bp.route("/entrega", methods=["POST", "GET"])
 def entrega():
@@ -30,4 +30,4 @@ def entrega():
                            USER=session,
                            ITENS_CARRINHO=session['carrinho'],
                            QUANTIDADE_CARRINHO=len(session["carrinho"]),
-                           LOJAS=database.child("stores").get().val())
+                           LOJAS=database.reference("/stores").get())
