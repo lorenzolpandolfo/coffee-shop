@@ -1,4 +1,4 @@
-import firebase_settings
+from crud_modules import firebase_settings
 database = firebase_settings.database
 
 def adicionar_nova_loja(loja):

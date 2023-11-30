@@ -65,8 +65,9 @@
             <p style="font-style: italic;">Escolha a forma de entrega</p>
             <button>Retirar na loja</button>
             <button>Entregar no endereço</button>
+            
             {% for loja in LOJAS %}
-            <a href="#">
+            <a href="#" style="text-decoration: none; color: black;">
                 <div class="item">
                     <i class="fa-solid fa-store" style="font-size: 24px;"></i>
                     <p>{{loja['rua']}}, número {{loja['numero']}}</p>

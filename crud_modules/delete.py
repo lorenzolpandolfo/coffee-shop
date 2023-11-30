@@ -1,5 +1,4 @@
-import firebase_settings
-import read
+from crud_modules import firebase_settings, read
 database = firebase_settings.database
 
 def delete(item):

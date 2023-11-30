@@ -1,8 +1,6 @@
 import pyrebase
 import firebase_admin
-from firebase_admin import auth as admin_auth
-from firebase_admin import credentials
-from firebase_admin import exceptions
+from firebase_admin import auth as admin_auth, credentials, exceptions
 import json
 
 
