@@ -146,6 +146,19 @@
     margin-top: 7vh;
 }
 
+.btn_sair_da_conta {
+    display: block; /* Colocar os inputs em blocos para centralizar */
+    margin: 0 auto; /* Centralizar horizontalmente */
+    text-align: center; /* Centralizar texto dentro dos inputs */
+    width: 30%;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #FFC09F;
+    color: #000;
+    font-size: 12pt;
+}
+
 @media screen and (max-width: 800px) {
     .right_board {
         display: none;

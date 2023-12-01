@@ -33,6 +33,8 @@ def reg_endereco():
                 "referencia":   referencia_value
             }
 
+            print(dc)
+
             database.reference(f"/users/{mylocalid}/enderecos").push().set(dc)
             
 
