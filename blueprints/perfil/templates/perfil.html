@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{url_for('static', filename='perfil.css')}}">
     <script src="https://kit.fontawesome.com/6b3ea5ddf8.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="/static/checkbox.js"></script>
+    <script src="/static/add_n_remove_endereco.js"></script>
 
     <title>Lo Café - Meu Perfil</title>
 </head>
@@ -68,34 +68,24 @@
                     <p>Telefone:    {{USER["telefone"]}}</p>
                 </span>
             </div>
-
+            
             <p style="font-size: 30px;text-align: center;margin-top: 5vh;">Endereços de entrega</p>
+
+            {% for endereco in ENDERECOS %}
             <div class="item">
                 <span class="texto">
-                    <p style="font-size: 30px;">Casa</p>
-                    <p>Rua Brasil, número 120</p>
-                    <p>Bairro Palmeiras</p>
-                    <p>CEP 90440190</p>
-                    <p>Complemento: Lado 7A</p>
-                    <p>Referência: grande prédio azul</p>
+                    <p style="font-size: 30px;">{{ENDERECOS[endereco]["apelido"]}}</p>
+                    <p>{{ENDERECOS[endereco]["rua"]}}</p>
+                    <p>{{ENDERECOS[endereco]["bairro"]}}</p>
+                    <p>{{ENDERECOS[endereco]["cep"]}}</p>
+                    <p>{{ENDERECOS[endereco]["complemento"]}}</p>
+                    <p>{{ENDERECOS[endereco]["referencia"]}}</p>
                 </span>
-                <button class="remove_button" value="{{item}}">
+                <button class="remove_button" value="{{endereco}}">
                     <i class="fa-solid fa-xmark" style="font-size: 20px;"></i>
                 </button>
             </div>
-            <div class="item">
-                <span class="texto">
-                    <p style="font-size: 30px;">Casa</p>
-                    <p>Rua Brasil, número 120</p>
-                    <p>Bairro Palmeiras</p>
-                    <p>CEP 90440190</p>
-                    <p>Complemento: Lado 7A</p>
-                    <p>Referência: grande prédio azul</p>
-                </span>
-                <button class="remove_button" value="{{item}}">
-                    <i class="fa-solid fa-xmark" style="font-size: 20px;"></i>
-                </button>
-            </div>
+        {% endfor %}
             <a href="/registrar-endereço">
                 <p>Registrar novo endereço</p>
             </a>

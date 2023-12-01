@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='reg_endereco.css')}}">
+    <script src="https://kit.fontawesome.com/6b3ea5ddf8.js" crossorigin="anonymous"></script>
+
+    
+    <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="/static/add_n_remove_endereco.js"></script>
+
+    <title>Lo Café - Registrar Endereço</title>
+</head>
+<body>
+
+    <div class="top_bar">
+        <h1>lo café</h1>
+    </div>
+    <div class="bottom_bar"> 
+
+        <a href="/">      
+            <i class="fa-solid fa-utensils"></i>
+            <p>Cardápio</p>
+        </a>
+    
+        {% if USER %}
+        <a href="/carrinho">
+            <i class="fa-solid fa-cart-shopping"></i>
+            {% if QUANTIDADE_CARRINHO == 0 %}
+                <p class="item_count">Carrinho</p>
+            {% else %}
+                <p class="item_count">Carrinho ({{QUANTIDADE_CARRINHO}})</p>
+            {% endif %}
+        </a>
+        {% else %}
+        <a href="/login">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <p>Carrinho</p>
+        </a>
+        {% endif %}
+        
+        {% if USER %}
+        <a href="/perfil">      
+            <i class="fa-solid fa-user"></i>
+            <p>Perfil</p>
+        </a>
+        {% else %}
+        <a href="/login">
+            <i class="fa-solid fa-user"></i>
+            <p>Login</p>
+        </a>
+        {% endif %}
+        
+        <a href="/info">
+            <i class="fa-solid fa-circle-info"></i>
+            <p>Info</p>
+        </a>
+    </div>
+    <div class="bottom_bar_background">
+    </div>
+
+
+    
+    <div class="main">
+        <div class="card">
+            <p style="font-size: 30px; margin-top: 3vh; margin-bottom: 0.5vh;">Registrar Endereço</p>
+            <p style="margin-bottom: 2.5vh;">Para pedir sempre!</p>
+            <label>
+                <p>Rua</p>
+                <input type="text" class="rua">
+                <p>Número</p>
+                <input type="text"  class="numero">
+                <p>Bairro</p>
+                <input type="text" class="bairro">
+                <p>CEP</p>
+                <input type="text" class="cep">
+                <p>Complemento</p>
+                <input type="text"  placeholder="apt. 201" class="complemento">
+                <p>Apelido</p>
+                <input type="text"  placeholder="Casa" class="apelido">
+                <p>Referência</p>
+                <input type="text"  placeholder="Prédio azul" class="apelido">
+                <input type="submit" value="Adicionar" class="add_button">
+            </label>
+        </div>
+    </div>
+</body>
+</html>

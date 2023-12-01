@@ -34,25 +34,6 @@ def carrinho():
 
             return jsonify({'quantidade_carrinho': len(session["carrinho"])})
             
-        """# recebendo uma alteração de item no carrinho
-        checkbox_item_id = request.args.get('itemId')
-        if checkbox_item_id:
-            checkbox_adicional_id = request.args.get('adicionalId')
-            checkbox_value = request.args.get('checkboxValue')
-
-            if "carrinhoLocal" not in session:
-                session["carrinhoLocal"] = session["carrinho"]
-
-
-            session["carrinhoLocal"][int(checkbox_item_id) - 1]["adicionais"][int(checkbox_adicional_id) - 1]["status"] = checkbox_value
-            session.modified = True
-
-            print(session["carrinhoLocal"])
-        
-            # print(session["carrinho"][int(checkbox_item_id) - 1]["adicionais"])"""
-
-
-    
     return render_template("carrinho.html",
                            USER=session,
                            ITENS_CARRINHO=session['carrinho'],
