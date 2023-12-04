@@ -24,7 +24,7 @@ $(document).ready(function(){
             },
             success: setTimeout(function() {
                 window.location.href = "/perfil";
-            }, 0)
+            }, 50)
         })
     })
     
