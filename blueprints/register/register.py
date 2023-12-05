@@ -3,6 +3,7 @@ from crud_modules import firebase_settings
 
 auth = firebase_settings.auth
 admin_auth = firebase_settings.admin_auth
+database = firebase_settings.admin_db
 
 register_bp = Blueprint("register", __name__, template_folder="templates")
 
@@ -35,8 +36,8 @@ def register():
                 }
 
                 # salva no banco de dados as informações do usuario
-                db.child("users").update({localid:new_user_data})
-                print(session)
+                
+                database.reference(f"/users/{localid}").update(new_user_data)
                 return redirect(url_for("homepage.home"))
 
             except Exception as ERRO:
