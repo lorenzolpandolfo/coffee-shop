@@ -63,21 +63,50 @@
         <div class="board">
             <p class="title">Entrega</p>
             <p style="font-style: italic;">Escolha a forma de entrega</p>
-            <button>Retirar na loja</button>
-            <button>Entregar no endereço</button>
+            <button onclick="switchEntregaReceber()">Toggle Visibilidade</button>
+
+            <button class="button">Retirar na loja</button>
+            <button class="button">Receber em casa</button>
             
-            {% for loja in LOJAS %}
-            <a href="#" style="text-decoration: none; color: black;">
-                <div class="item">
-                    <i class="fa-solid fa-store" style="font-size: 24px;"></i>
-                    <p>{{loja['rua']}}, número {{loja['numero']}}</p>
-                    <p>{{loja['bairro']}}</p>
-                </div>
-            </a>
-            {% endfor %}
+            <div class="retirar">
+                {% for loja in LOJAS %}
+                <a href="#" style="text-decoration: none; color: black;">
+                    <div class="item">
+                        <i class="fa-solid fa-store" style="font-size: 24px;"></i>
+                        <p>{{loja['rua']}}, número {{loja['numero']}}</p>
+                        <p>{{loja['bairro']}}</p>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+
+            <div class="receber">
+                <p>Endereço 1</p>
+                <p>Endereço 2</p>
+                <p>Endereço 3</p>
+            </div>
             
     </div>
     
+    <script>
+        function switchEntregaReceber() {
+            var enderecos_retirar = document.querySelectorAll(".retirar")
+            var enderecos_entrega = document.querySelectorAll(".entrega")
+            
+            enderecos_retirar.forEach(function(elemento) {
+                if (elemento.style.display === "none" || elemento.style.display === '')
+                {
+                    elemento.style.display = "block";
+
+                }
+                else
+                {
+                    elemento.style.display = "none";
+                }
+            }
+            );
+        }
+    </script>
     
 </body>
 </html>

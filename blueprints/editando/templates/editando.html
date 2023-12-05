@@ -95,12 +95,14 @@
             {% endfor %}
             
             <p class="title">Alguma observação?</p>
-            <textarea placeholder="Ex: não muito quente, sem gelo, dois canudos etc"></textarea>
+            <p style="font-style: italic; margin-bottom: 20px;">Para uma experiência única.</p>
+
+            <textarea class="observacao" placeholder="Ex: não muito quente, sem gelo, dois canudos etc"></textarea>
             
             {% if ITENS_CARRINHO %}
             <div class="interagir_carrinho">
-                <button>Limpar carrinho</button>
-                <button onclick="window.location.href='/entrega'">Próximo</button>
+                <button class="button">Limpar carrinho</button>
+                <button class="button" onclick="window.location.href='/entrega'">Próximo</button>
             </div>
             <div class="carrinho_vazio" style="display: none;">
                 <h2>O carrinho está vazio!</h2>

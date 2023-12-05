@@ -179,13 +179,3 @@
     }
 
 }
-
-.right_board {
-    background: #FFC09F;
-    height: 80vh;
-    max-height: 400px;
-    width: 30vw;
-    max-width: 250px;
-    border-radius: 10px;
-    margin: 7vh 0 0 2vh;
-}
