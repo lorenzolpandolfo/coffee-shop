@@ -148,7 +148,8 @@
 
 .btn_sair_da_conta {
     display: block; /* Colocar os inputs em blocos para centralizar */
-    margin: 0 auto; /* Centralizar horizontalmente */
+    margin: 0 auto ; /* Centralizar horizontalmente */
+    margin-bottom: 40px;
     text-align: center; /* Centralizar texto dentro dos inputs */
     width: 30%;
     border: none;

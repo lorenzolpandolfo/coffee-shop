@@ -60,71 +60,67 @@
 
 
     <div class="main">
-            <div class="board">
-                <p class="title">Entrega</p>
-                <p style="font-style: italic;">Escolha a forma de entrega</p>
-
-                <button class="button" onclick="retirarVisible()">Retirar na loja</button>
-                <button class="button"onclick="retirarInvisible()">Receber em casa</button>
-                
-                <div class="retirar" style="display: none;">
-                    <p class="title">Retirar na Loja</p>
-                    <p style="font-style: italic;">Aproveite para conhecer a loja!</p>
-
-                    {% for loja in LOJAS %}
-                    <a href="#" style="text-decoration: none; color: black;" id="{{loja}}">
-                        <div class="item">
-                            <i class="fa-solid fa-store" style="font-size: 24px;"></i>
-                            <p>{{LOJAS[loja]['rua']}}, número {{LOJAS[loja]['numero']}}</p>
-                            <p>{{LOJAS[loja]['bairro']}}</p>
-                        </div>
-                    </a>
-                    {% endfor %}
-                </div>
-                
-                <div class="receber">
-                    <p class="title">Receber em Casa</p>
-                    <p style="font-style: italic;">Logo já tá chegando!</p>
-
-                    {% for endereco in ENDERECOS %}
-                    <a href="#" style="text-decoration: none; color: black;" id="{{endereco}}">
-                        <div class="item">
-                            <p style="font-size: 30px;">{{ENDERECOS[endereco]["apelido"]}}</p>
-                            <p>{{ENDERECOS[endereco]["rua"]}}</p>
-                            <p>{{ENDERECOS[endereco]["bairro"]}}</p>
-                            <p>{{ENDERECOS[endereco]["cep"]}}</p>
-                            <p>{{ENDERECOS[endereco]["complemento"]}}</p>
-                            <p>{{ENDERECOS[endereco]["referencia"]}}</p>
-                        </div>
-                    </a>
-                    {% endfor %}
-                </div>
-                
-        </div>
-        
-        <script>
-            function retirarVisible() {
-                var enderecos_retirar = document.querySelector(".retirar")
-                enderecos_retirar.style.display = "block"
-                return receberInvisible()  
-            }
+        <div class="board">
+            <button class="button" onclick="retirarVisible()">Retirar na loja</button>
+            <button class="button"onclick="retirarInvisible()">Receber em casa</button>
             
-            function retirarInvisible() {
-                var enderecos_retirar = document.querySelector(".retirar")
-                enderecos_retirar.style.display = "none"            
-                return receberVisible()  
-            }
+            <div class="retirar" style="display: none;">
+                <p class="title">Retirar na Loja</p>
+                <p style="font-style: italic;">Aproveite para conhecer a loja!</p>
 
-            function receberVisible() {
-                var enderecos_receber = document.querySelector(".receber")
-                enderecos_receber.style.display = "block"    
-            }
+                {% for loja in LOJAS %}
+                <a href="#" style="text-decoration: none; color: black;" id="{{loja}}">
+                    <div class="item">
+                        <i class="fa-solid fa-store" style="font-size: 24px;"></i>
+                        <p>{{LOJAS[loja]['rua']}}, número {{LOJAS[loja]['numero']}}</p>
+                        <p>{{LOJAS[loja]['bairro']}}</p>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+            
+            <div class="receber">
+                <p class="title">Receber em Casa</p>
+                <p style="font-style: italic;">Logo já tá chegando!</p>
 
-            function receberInvisible() {
-                var enderecos_receber = document.querySelector(".receber")
-                enderecos_receber.style.display = "none"    
-            }
-        </script>   
+                {% for endereco in ENDERECOS %}
+                <a href="#" style="text-decoration: none; color: black;" id="{{endereco}}">
+                    <div class="item">
+                        <p style="font-size: 30px;">{{ENDERECOS[endereco]["apelido"]}}</p>
+                        <p>{{ENDERECOS[endereco]["rua"]}}</p>
+                        <p>{{ENDERECOS[endereco]["bairro"]}}</p>
+                        <p>{{ENDERECOS[endereco]["cep"]}}</p>
+                        <p>{{ENDERECOS[endereco]["complemento"]}}</p>
+                        <p>{{ENDERECOS[endereco]["referencia"]}}</p>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>      
+    </div>
+    
+    <script>
+        function retirarVisible() {
+            var enderecos_retirar = document.querySelector(".retirar")
+            enderecos_retirar.style.display = "block"
+            return receberInvisible()  
+        }
+        
+        function retirarInvisible() {
+            var enderecos_retirar = document.querySelector(".retirar")
+            enderecos_retirar.style.display = "none"            
+            return receberVisible()  
+        }
+
+        function receberVisible() {
+            var enderecos_receber = document.querySelector(".receber")
+            enderecos_receber.style.display = "block"    
+        }
+
+        function receberInvisible() {
+            var enderecos_receber = document.querySelector(".receber")
+            enderecos_receber.style.display = "none"    
+        }
+    </script>   
     
 </body>
 </html>
