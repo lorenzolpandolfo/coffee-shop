@@ -1,9 +1,10 @@
 from crud_modules import firebase_settings
-database = firebase_settings.database
+database = firebase_settings.admin_db
 
 def adicionar_nova_loja(loja):
     try:
-        database.child("stores").update({loja['id']:loja})
+        database.reference("/stores/").push().update(loja)
+        #database.child("stores").update({loja['id']:loja})
         return f"[!] A loja da rua {loja['rua']} foi adicionada com sucesso ao banco de dados.\n"
     
     except Exception as erro:
@@ -14,7 +15,7 @@ def criar_nova_loja():
     numero = input("> Digite o número da loja: ")
     bairro = input("> Digite o bairro da loja: ")
 
-    stores_db = database.child("stores").get().val()
+    """stores_db = database.child("stores").get().val()
     try:
         id = len(stores_db)
 
@@ -23,12 +24,11 @@ def criar_nova_loja():
     
     except Exception:
         id = 0
-
+"""
     loja = {
         "rua": rua,
         "numero": numero,
-        "bairro": bairro,
-        "id": id
+        "bairro": bairro
     }
 
     print(f"{'-'*10} Resumo da Loja: {'-'*10}")

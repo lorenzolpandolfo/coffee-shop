@@ -8,26 +8,14 @@ database = firebase_settings.admin_db
 
 @entrega_bp.route("/entrega", methods=["POST", "GET"])
 def entrega():
-    
-    """if request.method == "GET":
+    try:
+        mylocalid = session["user"]["localId"]
+    except Exception:
+        return url_for(redirect("/login"))
 
-        # recebendo uma alteração de item no carrinho
-        checkbox_item_id = request.args.get('itemId')
-        if checkbox_item_id:
-            checkbox_adicional_id = request.args.get('adicionalId')
-            checkbox_value = request.args.get('checkboxValue')
-
-            session["carrinho"][int(checkbox_item_id) - 1]["adicionais"][int(checkbox_adicional_id) - 1]["status"] = checkbox_value
-            session.modified = True
-
-            print(session["carrinho"])
-        
-            # print(session["carrinho"][int(checkbox_item_id) - 1]["adicionais"])"""
-
-
-    
     return render_template("entrega.html",
                            USER=session,
                            ITENS_CARRINHO=session['carrinho'],
                            QUANTIDADE_CARRINHO=len(session["carrinho"]),
-                           LOJAS=database.reference("/stores").get())
+                           LOJAS=database.reference("/stores/").get(),
+                           ENDERECOS=database.reference(f"/users/{mylocalid}/enderecos/").get())
