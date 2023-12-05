@@ -12,6 +12,11 @@ def entrega():
         mylocalid = session["user"]["localId"]
     except Exception:
         return url_for(redirect("/login"))
+    
+    if request.method == "GET":
+        info = request.args.get('infos')
+
+        print(info)
 
     return render_template("entrega.html",
                            USER=session,

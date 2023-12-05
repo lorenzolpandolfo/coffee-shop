@@ -7,7 +7,7 @@
     <script src="https://kit.fontawesome.com/6b3ea5ddf8.js" crossorigin="anonymous"></script>
 
     <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="/static/checkbox.js"></script>
+    <script src="/static/send_delivery_info.js"></script>
 
     <title>Lo Café - Entrega</title>
 </head>
@@ -69,7 +69,7 @@
                 <p style="font-style: italic;">Aproveite para conhecer a loja!</p>
 
                 {% for loja in LOJAS %}
-                <a href="#" style="text-decoration: none; color: black;" id="{{loja}}">
+                <a href="#" style="text-decoration: none; color: black;" id="{{loja}}" class="enviar">
                     <div class="item">
                         <i class="fa-solid fa-store" style="font-size: 24px;"></i>
                         <p>{{LOJAS[loja]['rua']}}, número {{LOJAS[loja]['numero']}}</p>
@@ -84,7 +84,7 @@
                 <p style="font-style: italic;">Logo já tá chegando!</p>
 
                 {% for endereco in ENDERECOS %}
-                <a href="#" style="text-decoration: none; color: black;" id="{{endereco}}">
+                <a href="#" style="text-decoration: none; color: black;" id="{{endereco}}" class="enviar">
                     <div class="item">
                         <p style="font-size: 30px;">{{ENDERECOS[endereco]["apelido"]}}</p>
                         <p>{{ENDERECOS[endereco]["rua"]}}</p>
@@ -93,6 +93,7 @@
                         <p>{{ENDERECOS[endereco]["complemento"]}}</p>
                         <p>{{ENDERECOS[endereco]["referencia"]}}</p>
                     </div>
+                    <input type="hidden" class="infos" value="{{ENDERECOS[endereco]}}">
                 </a>
                 {% endfor %}
             </div>      
