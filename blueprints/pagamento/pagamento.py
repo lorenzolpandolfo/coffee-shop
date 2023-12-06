@@ -41,10 +41,12 @@ def somar_preco_adicionais():
 
 @pagamento_bp.route("/pagamento", methods=["POST", "GET"])
 def pagamento():
-    print("Recebido: ", session["dados_entrega"])
-    return render_template("pagamento.html",
-                           USER=session,
-                           ITENS_CARRINHO=session['carrinho'],
-                           QUANTIDADE_CARRINHO=len(session["carrinho"]),
-                           SOMA_TOTAL = somar_preco_itens() + somar_preco_adicionais(),
-                           ENTREGA = session["dados_entrega"])
+    try:    
+        return render_template("pagamento.html",
+                            USER=session,
+                            ITENS_CARRINHO=session['carrinho'],
+                            QUANTIDADE_CARRINHO=len(session["carrinho"]),
+                            SOMA_TOTAL = somar_preco_itens() + somar_preco_adicionais(),
+                            ENTREGA = session["dados_entrega"])
+    except Exception:
+        return redirect(url_for("login.index"))

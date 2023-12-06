@@ -21,8 +21,11 @@ def index():
         
         except Exception as ERRO:
                 if "EMAIL_EXISTS" in str(ERRO):
-                    return render_template("login.html", erro = 'O email já está registrado')
+                    return render_template("login.html", erro = "O email já está registrado")
                 
+                if "INVALID_LOGIN_CREDENTIALS" in str(ERRO):
+                    return render_template("login.html", erro = "Credenciais inválidas")
+                     
                 else:
                     return render_template("login.html", erro = ERRO)
         

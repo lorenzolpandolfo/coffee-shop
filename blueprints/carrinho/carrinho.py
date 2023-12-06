@@ -17,25 +17,28 @@ def somar_precos():
 
 @carrinho_bp.route("/carrinho", methods=["POST", "GET"])
 def carrinho():
-    if request.method == "GET":
-        button_value = request.args.get('item')
+    try:
+        if request.method == "GET":
+            button_value = request.args.get('item')
 
-        # Removendo item do carrinho
-        if button_value:
-            item = button_value.replace("'", '"').replace("True", "true").replace("False", "false")
-            item = json.loads(item)
+            # Removendo item do carrinho
+            if button_value:
+                item = button_value.replace("'", '"').replace("True", "true").replace("False", "false")
+                item = json.loads(item)
 
-            # print(session["carrinho"])
-            # print('removendo ', item)
+                # print(session["carrinho"])
+                # print('removendo ', item)
 
-            session["carrinho"].remove(item)
-            session["carrinhoLocal"] = session["carrinho"]
-            session.modified = True
+                session["carrinho"].remove(item)
+                session["carrinhoLocal"] = session["carrinho"]
+                session.modified = True
 
-            return jsonify({'quantidade_carrinho': len(session["carrinho"])})
-            
-    return render_template("carrinho.html",
-                           USER=session,
-                           ITENS_CARRINHO=session['carrinho'],
-                           QUANTIDADE_CARRINHO=len(session["carrinho"]),
-                           soma_precos = somar_precos())
+                return jsonify({'quantidade_carrinho': len(session["carrinho"])})
+                
+        return render_template("carrinho.html",
+                            USER=session,
+                            ITENS_CARRINHO=session['carrinho'],
+                            QUANTIDADE_CARRINHO=len(session["carrinho"]),
+                            soma_precos = somar_precos())
+    except Exception:
+        return redirect(url_for("login.index"))
