@@ -65,38 +65,40 @@
             <p style="font-style: italic;">Confira se está tudo certinho!</p>
 
             <p style="font-size: 30px;text-align: center;margin-top: 5vh;">Resumo do pedido</p>
-
+            
             {% for item in ITENS_CARRINHO %}
-            
-            <div class="item" id="{{loop.index}}">
-                <img class='itemImage' src="{{item['image_link']}}">
-                <div class="itemInfo">
-                    <p style="font-size: 22px; font-style: italic;">
-                        {{item['titulo']}}
-                        {% if item['vegan'] %}
+                <div class="item" id="{{loop.index}}">
+                    <img class='itemImage' src="{{item['image_link']}}">
+                    <div class="itemInfo">
+                        <p style="font-size: 22px; font-style: italic;">
+                            {{item['titulo']}}
+                            {% if item['vegan'] %}
                             <i class="fa-solid fa-leaf" title="Vegano"></i>
-                        {% endif %}
-                    </p>
-                    <p style="font-size: 18px;">R${{item['preco']}}</p>
-                </div>
+                            {% endif %}
+                        </p>
+                        <p style="font-size: 18px;">R${{item['preco']}}</p>
+                    </div>
 
-                {% if item['adicionais'] %}
-                    {% for adicional in item['adicionais']%}
-                        {% if adicional['status'] == "true" %}
-                            <div id="{{loop.index}}">
-                                <span style="display: flex; align-items: center;">
-                                    <i class="fa-regular fa-circle-check" style="margin-right: 6px;"></i>
-                                    <p>{{adicional['nome']}} por +R${{adicional['preco']}}</p>
-                                </span>
-                            </div>
-                        {% endif %}
-                    {% endfor %}
-                {% endif %}
-            </div>
-            
+                    {% if item['adicionais'] %}
+                        {% for adicional in item['adicionais']%}
+                            {% if adicional['status'] == "true" %}
+                                <div id="{{loop.index}}">
+                                    <span style="display: flex; align-items: center;">
+                                        <i class="fa-regular fa-circle-check" style="margin-right: 6px;"></i>
+                                        <p>{{adicional['nome']}} por +R${{adicional['preco']}}</p>
+                                    </span>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </div>        
             {% endfor %}
-    </div>
-    
+           
+            <span style="font-size: 30px;text-align: center;margin-top: 5vh;">
+                <p >Valor total</p>
+                <p><i>R${{SOMA_TOTAL}}</i></p>
+            </span> 
+            
     
 </body>
 </html>

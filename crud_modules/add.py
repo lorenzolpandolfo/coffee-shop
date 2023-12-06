@@ -40,7 +40,8 @@ def criar_novo_item():
             alt_cost = float(input("> Qual o valor adicional para esta alternativa? (0 para nulo): ").replace(",", "."))
             alt_list.append({
                 "nome": alt_name,
-                "preco": alt_cost
+                "preco": alt_cost,
+                "status": "false"
             })
     
     estoque = input("> O item já está em estoque e pronto para ser comercializado? (S/n): ")
