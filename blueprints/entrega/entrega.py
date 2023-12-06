@@ -12,7 +12,7 @@ def entrega():
     try:
         mylocalid = session["user"]["localId"]
     except Exception:
-        return url_for(redirect("/login"))
+        return redirect(url_for("/login"))
     
     if request.method == "GET":
         id = request.args.get("id")
@@ -26,7 +26,10 @@ def entrega():
             session["id_entrega"] = id
             session.modified = True
 
-            print("Dados da entrega: ", session["dados_entrega"])
+            
+            if session["dados_entrega"] == data:
+                return jsonify({"status":"sucesso"})
+
 
     return render_template("entrega.html",
                            USER=session,

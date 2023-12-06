@@ -3,6 +3,8 @@ $(document).ready(function(){
     $('.enviar').click(function(){
         var id = $(this).attr("id");
         var data = $(this).attr("data");
+        console.log(id)
+        console.log(data)
         $.ajax({
             url:'',
             type: 'get',
@@ -11,9 +13,9 @@ $(document).ready(function(){
                 "id":id,
                 "data":data
             },
-            success: setTimeout(function() {
+            success: function(response) {
                 window.location.href = "/pagamento";
-            }, 50)
+            }
         })
     })
 })
