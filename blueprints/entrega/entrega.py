@@ -6,6 +6,7 @@ entrega_bp = Blueprint("entrega", __name__, template_folder="templates")
 
 database = firebase_settings.admin_db
 
+
 @entrega_bp.route("/entrega", methods=["POST", "GET"])
 def entrega():
     try:
@@ -15,8 +16,10 @@ def entrega():
     
     if request.method == "GET":
         info = request.args.get('infos')
+        session["endereco_entrega"] = info
 
-        print(info)
+        print("AAAAaa:")
+        print(session["endereco_entrega"])
 
     return render_template("entrega.html",
                            USER=session,

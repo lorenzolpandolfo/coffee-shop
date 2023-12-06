@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     $('.enviar').click(function(){
-        var informacoes = $('.infos').val()
+        var informacoes = $(this).attr("id");
         $.ajax({
             url:'',
             type: 'get',
