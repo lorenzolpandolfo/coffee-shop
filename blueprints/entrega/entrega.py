@@ -16,10 +16,8 @@ def entrega():
     
     if request.method == "GET":
         info = request.args.get('infos')
-        session["endereco_entrega"] = info
+        session["id_entrega"] = info
 
-        print("AAAAaa:")
-        print(session["endereco_entrega"])
 
     return render_template("entrega.html",
                            USER=session,
