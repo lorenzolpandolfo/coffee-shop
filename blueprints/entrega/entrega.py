@@ -15,9 +15,18 @@ def entrega():
         return url_for(redirect("/login"))
     
     if request.method == "GET":
-        info = request.args.get('infos')
-        session["id_entrega"] = info
+        id = request.args.get("id")
+        data = request.args.get("data")
 
+        if data is not None and id is not None:
+            data = str(request.args.get("data")).replace("'", '"').replace("True", "true").replace("False", "false")
+            data = json.loads(data)
+
+            session["dados_entrega"] = data
+            session["id_entrega"] = id
+            session.modified = True
+
+            print("Dados da entrega: ", session["dados_entrega"])
 
     return render_template("entrega.html",
                            USER=session,

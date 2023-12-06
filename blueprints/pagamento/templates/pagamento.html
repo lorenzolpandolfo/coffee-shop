@@ -93,11 +93,25 @@
                     {% endif %}
                 </div>        
             {% endfor %}
-           
+
             <span style="font-size: 30px;text-align: center;margin-top: 5vh;">
                 <p >Valor total</p>
                 <p><i>R${{SOMA_TOTAL}}</i></p>
             </span> 
+
+            <p style="font-size: 30px;text-align: center;margin-top: 5vh;">Entrega</p>
+            
+                <div class="item">
+                    <p style="font-size: 30px;">{{ENTREGA["apelido"]}}</p>
+                    <p>{{ENTREGA["rua"]}}</p>
+                    <p>{{ENTREGA["bairro"]}}</p>
+                    <p>{{ENTREGA["cep"]}}</p>
+                    <p>{{ENTREGA["complemento"]}}</p>
+                    <p>{{ENTREGA["referencia"]}}</p>
+                </div>
+                <input type="hidden" class="infos" value="{{endereco}}">
+            
+           
             
     
 </body>

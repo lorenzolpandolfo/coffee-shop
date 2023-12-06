@@ -1,13 +1,15 @@
 $(document).ready(function(){
 
     $('.enviar').click(function(){
-        var informacoes = $(this).attr("id");
+        var id = $(this).attr("id");
+        var data = $(this).attr("data");
         $.ajax({
             url:'',
             type: 'get',
             contentType: 'application/json',
             data: {
-                "infos":informacoes
+                "id":id,
+                "data":data
             },
             success: setTimeout(function() {
                 window.location.href = "/pagamento";

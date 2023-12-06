@@ -25,7 +25,6 @@ def somar_preco_adicionais():
         adicionais = item["adicionais"]
         if adicionais:
             for adicional in adicionais:
-                print(adicional)
                 preco = float(adicional["preco"])
 
                 # Caso não tenha a chave status (ela já vem por padrão false. Talvez esse tryblock seja desnecessário)
@@ -46,4 +45,5 @@ def pagamento():
                            USER=session,
                            ITENS_CARRINHO=session['carrinho'],
                            QUANTIDADE_CARRINHO=len(session["carrinho"]),
-                           SOMA_TOTAL = somar_preco_itens() + somar_preco_adicionais())
+                           SOMA_TOTAL = somar_preco_itens() + somar_preco_adicionais(),
+                           ENTREGA = session["dados_entrega"])
