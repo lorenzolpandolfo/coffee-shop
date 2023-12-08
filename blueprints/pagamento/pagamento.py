@@ -50,7 +50,11 @@ def consultar_cartoes_registrados():
 
 @pagamento_bp.route("/pagamento", methods=["POST", "GET"])
 def pagamento():
-    try:    
+    try:
+        if request.method == "GET":
+            preco_pix = request.args.get("preco")
+
+
         return render_template("pagamento.html",
                             USER=session,
                             ITENS_CARRINHO=session['carrinho'],

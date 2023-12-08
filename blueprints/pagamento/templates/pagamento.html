@@ -7,7 +7,7 @@
     <script src="https://kit.fontawesome.com/6b3ea5ddf8.js" crossorigin="anonymous"></script>
 
     <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="/static/checkbox.js"></script>
+    <script src="/static/enviar_req_pix.js"></script>
 
     <title>Lo Café - Pagamento</title>
 </head>
@@ -114,10 +114,10 @@
             <p style="font-size: 30px;text-align: center;margin-top: 5vh;">Forma de Pagamento</p>
             <p style="font-style: italic; text-align: center;">Escolha a melhor forma de pagamento para você</p>
 
-            <button class="button" onclick="">Pix</button>
-            <button class="button" onclick="">Cartão</button>
+            <button class="gerar_pix" preco="{{SOMA_TOTAL}}">Pix</button>
+            <button class="button">Cartão</button>
 
-            
+            <img src="{{url_for('static', filename='pix_qr_code.png')}}">
 
 </body>
 </html>
