@@ -8,6 +8,7 @@ from blueprints.editando.editando import editando_bp
 from blueprints.entrega.entrega import entrega_bp
 from blueprints.perfil.perfil import perfil_bp
 from blueprints.registrarEndereco.reg_endereco import reg_endereco_bp
+from blueprints.registrarCartao.reg_cartao import reg_cartao_bp
 
 app = Flask(__name__)
 app.secret_key = 'secret'
@@ -21,6 +22,7 @@ app.register_blueprint(editando_bp)
 app.register_blueprint(entrega_bp)
 app.register_blueprint(perfil_bp)
 app.register_blueprint(reg_endereco_bp)
+app.register_blueprint(reg_cartao_bp)
 
 
 if __name__ == '__main__':
