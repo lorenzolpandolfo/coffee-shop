@@ -39,6 +39,15 @@ def somar_preco_adicionais():
     return soma
 
 
+def somar_preco_total(itens, adicionais):
+    soma = itens + adicionais
+    formatado = str(soma)[:4]
+    return formatado
+
+
+def consultar_cartoes_registrados():
+    return 0
+
 @pagamento_bp.route("/pagamento", methods=["POST", "GET"])
 def pagamento():
     try:    
@@ -46,7 +55,9 @@ def pagamento():
                             USER=session,
                             ITENS_CARRINHO=session['carrinho'],
                             QUANTIDADE_CARRINHO=len(session["carrinho"]),
-                            SOMA_TOTAL = somar_preco_itens() + somar_preco_adicionais(),
-                            ENTREGA = session["dados_entrega"])
-    except Exception:
+                            SOMA_TOTAL = somar_preco_total(somar_preco_itens(), somar_preco_adicionais()),
+                            ENTREGA = session["dados_entrega"],
+                            CARTOES = consultar_cartoes_registrados())
+    except Exception as err:
+        print(err)
         return redirect(url_for("login.index"))

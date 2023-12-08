@@ -69,7 +69,7 @@
                 <p style="font-style: italic;">Aproveite para conhecer a loja!</p>
 
                 {% for loja in LOJAS %}
-                <a href="#" style="text-decoration: none; color: black;" id="{{loja}}" class="enviar">
+                <a href="#" style="text-decoration: none; color: black;" id="{{loja}}" class="enviar" data="{{LOJAS[loja]}}">
                     <div class="item">
                         <i class="fa-solid fa-store" style="font-size: 24px;"></i>
                         <p>{{LOJAS[loja]['rua']}}, número {{LOJAS[loja]['numero']}}</p>

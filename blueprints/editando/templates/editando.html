@@ -80,12 +80,20 @@
                 </div>
 
                 {% if item['adicionais'] %}
-                    {% for adicional in item['adicionais']%}
-                        <div id="{{loop.index}}">
-                            <input style="float: left; margin-top: 4px; margin-right: 5px;"
-                            class="checkbox" type="checkbox" name="{{adicional['nome']}}" value="false">
-                            <p> {{adicional['nome']}} por +R${{adicional['preco']}}</p>
-                        </div>
+                    {% for adicional in item['adicionais'] %}
+                        {% if adicional['status'] == 'true' %}
+                            <div id="{{loop.index}}">
+                                <input checked style="float: left; margin-top: 4px; margin-right: 5px;"
+                                class="checkbox" type="checkbox" name="{{adicional['nome']}}" value="false">
+                                <p> {{adicional['nome']}} por +R${{adicional['preco']}}</p>
+                            </div>
+                        {% else %}
+                            <div id="{{loop.index}}">
+                                <input style="float: left; margin-top: 4px; margin-right: 5px;"
+                                class="checkbox" type="checkbox" name="{{adicional['nome']}}" value="false">
+                                <p> {{adicional['nome']}} por +R${{adicional['preco']}}</p>
+                            </div>
+                        {% endif %}
                     {% endfor %}
                 {% else %}
                         <p style="font-style: italic;">Este item não contém adicionais.</p>
