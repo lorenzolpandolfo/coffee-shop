@@ -34,7 +34,4 @@ def criar_qr_code(preco:float):
 
     # Salvar o QR Code como uma imagem
     img = qr.make_image(fill_color="black", back_color="white")
-    img.save("pix_qr_code.png")
-    img.show()
-
-criar_qr_code(10)
+    img.save("static/pix_qr_code.png")

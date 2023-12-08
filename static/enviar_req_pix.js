@@ -10,8 +10,8 @@ $(document).ready(function(){
                 "preco":preco
             },
             success: function(response) {
-                console.log("sucesso!")
-                console.log(preco)
+                $('.pix_img').css('display', 'block');
+                $('.pix_img').attr('src', "static/pix_qr_code.png");
             }
         })
     })

@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, redirect, session, url_for, request, jsonify
 from crud_modules import firebase_settings
 import json
+from pix_module import pix
 
 pagamento_bp = Blueprint("pagamento", __name__, template_folder="templates")
 
@@ -53,7 +54,10 @@ def pagamento():
     try:
         if request.method == "GET":
             preco_pix = request.args.get("preco")
-            
+            if preco_pix:
+                pix.criar_qr_code(float(preco_pix))
+                print("imagem criada com sucesso")
+                return "imagem criada com sucesso"
 
         return render_template("pagamento.html",
                             USER=session,
