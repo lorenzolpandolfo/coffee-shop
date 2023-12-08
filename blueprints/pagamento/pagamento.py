@@ -53,7 +53,7 @@ def pagamento():
     try:
         if request.method == "GET":
             preco_pix = request.args.get("preco")
-
+            
 
         return render_template("pagamento.html",
                             USER=session,

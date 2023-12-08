@@ -155,3 +155,4 @@ service_key.json
 firebaseconfig.json
 firebase_credentials.json
 encrypt_key.py
+pix_qr_code.png
