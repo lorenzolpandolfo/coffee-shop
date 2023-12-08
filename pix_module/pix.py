@@ -30,8 +30,8 @@ def criar_qr_code(preco:float):
     qr.add_data(payload)
     qr.make(fit=True)
 
-    print(payload)
-
     # Salvar o QR Code como uma imagem
     img = qr.make_image(fill_color="black", back_color="white")
     img.save("static/pix_qr_code.png")
+    # payload é o codigo do pix
+    return payload

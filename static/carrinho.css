@@ -138,8 +138,9 @@
     height: 15vh;
 }
 
+.gerar_pix,
+.copiar_qr_code,
 .button {
-    
     width: 20%;
     border: none;
     border-radius: 5px;

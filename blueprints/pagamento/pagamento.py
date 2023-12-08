@@ -55,9 +55,7 @@ def pagamento():
         if request.method == "GET":
             preco_pix = request.args.get("preco")
             if preco_pix:
-                pix.criar_qr_code(float(preco_pix))
-                print("imagem criada com sucesso")
-                return "imagem criada com sucesso"
+                return pix.criar_qr_code(float(preco_pix))
 
         return render_template("pagamento.html",
                             USER=session,

@@ -1,18 +1,25 @@
 $(document).ready(function(){
+    var qrcode_code = "";
 
     $('.gerar_pix').click(function(){
         var preco = $(this).attr("preco");
         $.ajax({
-            url:'',
+            url: '',
             type: 'get',
             contentType: 'application/json',
             data: {
-                "preco":preco
+                "preco": preco
             },
             success: function(response) {
-                $('.pix_img').css('display', 'block');
+                $('.pix').css('display', 'block');
                 $('.pix_img').attr('src', "static/pix_qr_code.png");
+                qrcode_code = response;
             }
-        })
-    })
-})
+        });
+    });
+
+    $('.copiar_qr_code').click(function(){
+        $('.copy_output').css('display', 'block');
+        navigator.clipboard.writeText(qrcode_code);
+    });
+});
