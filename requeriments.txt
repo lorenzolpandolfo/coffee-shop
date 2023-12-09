@@ -1,3 +1,5 @@
 pyrebase4
 firebase_admin
 flask
+qrcode=0.4.6
+pypix=0.1.6
