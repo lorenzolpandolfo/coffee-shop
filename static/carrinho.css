@@ -141,6 +141,7 @@
 
 .gerar_pix,
 .copiar_qr_code,
+.confirmar_pagamento_pix,
 .button {
     width: 20%;
     border: none;

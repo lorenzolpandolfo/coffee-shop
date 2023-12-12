@@ -11,7 +11,6 @@ $(document).ready(function(){
                 "preco": preco
             },
             success: function(response) {
-                $('.pix').css('display', 'block');
                 $('.pix_img').attr('src', "static/pix_qr_code.png");
                 qrcode_code = response;
             }

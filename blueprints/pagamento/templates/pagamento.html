@@ -114,21 +114,70 @@
             <p style="font-size: 30px;text-align: center;margin-top: 5vh;">Forma de Pagamento</p>
             <p style="font-style: italic; text-align: center;">Escolha a melhor forma de pagamento para você</p>
                 
-            <button class="gerar_pix" preco="{{SOMA_TOTAL}}">Pix</button>
-            <button class="button">Cartão</button>
+            <button class="gerar_pix" preco="{{SOMA_TOTAL}}" onclick="pixVisible()">Pix</button>
+            <button class="button" onclick="pixInvisible()">Cartão</button>
                 
             <span class="pix" style="display: none;">
-                <img class="pix_img" style="width: 90vw;max-width: 300px;margin-left: 10px;">
-                <p class="copy_output" style="display: none;margin:0;">Código copiado!</p>
+                
+                <p style="font-size: 30px;text-align: center;margin-top: 5vh;">Pix</p>
+                <p style="font-style: italic; text-align: center;">Realize a leitura do código QR para efetuar o pagamento. Depois, clique em Confirmar.</p>
+                
+                <img class="pix_img" style="width: 90vw;max-width: 300px;margin-left: 20px;margin-top: 25px;display: block;">
+                <p class="copy_output" style="display: none;margin-top: 20px;">Código copiado!</p>
                 <button class="copiar_qr_code">Copiar código pix</button>
+                <button class="confirmar_pagamento_pix">Confirmar</button>
             </span>
 
             {% if CARTOES %}
+                <span class="cartoes">
+                    <p style="font-size: 30px;text-align: center;margin-top: 5vh;">Cartões</p>
+                    <p style="font-style: italic; text-align: center;">Selecione um cartão para realizar o pagamento</p>
+
+                    {% for cartao in CARTOES %}
+                        <div class="item">
+                            <span class="texto">
+                                <p style="font-size: 30px;">{{CARTOES[cartao]['apelido_cartao']}}</p>
+                                <p>Final {{CARTOES[cartao]['numero_cartao']}}</p>
+                                <p>Validade {{CARTOES[cartao]['validade']}}</p>
+                                <p>Titular: {{CARTOES[cartao]['titular']}}</p>
+                                
+                            </span>
+                            <button class="remove_button" value="{{cartao}}">
+                                <i class="fa-solid fa-check" style="font-size: 20px;"></i>
+                            </button>
+                        </div>
+                    {% endfor %}
+                </span>
             {% else %}
-            <div style="margin-top: 65px; font-size: 30px; text-align: center;">
-                <p>Você ainda não registrou nenhum cartão na sua conta.</p>
-                <p>Vá na aba de perfil para registrar um novo cartão.</p>
-            </div>
+                <div style="margin-top: 65px; font-size: 30px; text-align: center;">
+                    <p>Você ainda não registrou nenhum cartão na sua conta.</p>
+                    <p>Vá na aba de perfil para registrar um novo cartão.</p>
+                </div>
             {% endif %}
+
+            <script>
+                function pixVisible() {
+                    var pix = document.querySelector(".pix")
+                    pix.style.display = "block"
+                    return cartaoInvisible()  
+                }
+                
+                function pixInvisible() {
+                    var pix = document.querySelector(".pix")
+                    pix.style.display = "none"
+                    return cartaoVisible()  
+                }
+        
+                function cartaoVisible() {
+                    var cartao = document.querySelector(".cartoes")
+                    cartao.style.display = "block"
+                }
+        
+                function cartaoInvisible() {
+                    var cartoes = document.querySelector(".cartoes")
+                    cartoes.style.display = "none"
+                }
+            </script>   
+            
 </body>
 </html>

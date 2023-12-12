@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, redirect, session, url_for, reques
 from crud_modules import firebase_settings
 import json
 from pix_module import pix
+from blueprints.perfil import perfil
 
 pagamento_bp = Blueprint("pagamento", __name__, template_folder="templates")
 
@@ -52,6 +53,8 @@ def consultar_cartoes_registrados():
 @pagamento_bp.route("/pagamento", methods=["POST", "GET"])
 def pagamento():
     try:
+        mylocalid = session["user"]["localId"]
+
         if request.method == "GET":
             preco_pix = request.args.get("preco")
             if preco_pix:
@@ -63,7 +66,7 @@ def pagamento():
                             QUANTIDADE_CARRINHO=len(session["carrinho"]),
                             SOMA_TOTAL = somar_preco_total(somar_preco_itens(), somar_preco_adicionais()),
                             ENTREGA = session["dados_entrega"],
-                            CARTOES = consultar_cartoes_registrados())
+                            CARTOES = perfil.consultar_cartoes(mylocalid))
     except Exception as err:
         print(err)
         return redirect(url_for("login.index"))
