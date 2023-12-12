@@ -15,7 +15,7 @@ def reg_cartao():
         mylocalid = session['user']['localId']
 
         if request.method == "GET":
-            numero_cartao = request.args.get('numero_cartao')
+            numero_cartao = str(request.args.get('numero_cartao')).replace(" ", "")
             validade = request.args.get('validade')
             cvv = request.args.get('cvv')
             titular = request.args.get('titular')
@@ -34,7 +34,7 @@ def reg_cartao():
                 
                 # criptografando os dados
                 dc = crypt_info.encrypt_dict(dc)
-                
+
                 # enviando dados para o banco de dados
                 database.reference(f"/users/{mylocalid}/cartoes").push().set(dc)
                 

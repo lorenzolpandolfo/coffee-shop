@@ -18,14 +18,11 @@ def consultar_enderecos(localId):
 
     if enderecos:
         return enderecos
-    else:
-        return []
 
 
 def consultar_cartoes(localId):
     # pega o nó dos cartoes
     cartoes = database.reference(f"/users/{localId}/cartoes").get()
-
     decrypted_cartoes = {}
     
     # se tiver cartoes
@@ -39,9 +36,6 @@ def consultar_cartoes(localId):
             decrypted_cartoes[cartaoId] = cartao
 
         return decrypted_cartoes
-            
-    else:
-        return []
 
 
 @perfil_bp.route("/perfil", methods=["POST", "GET"])

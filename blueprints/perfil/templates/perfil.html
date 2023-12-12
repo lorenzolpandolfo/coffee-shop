@@ -72,45 +72,56 @@
                     <p>Telefone:    {{USER["telefone"]}}</p>
                 </span>
             </div>
-            
+
             <p style="font-size: 30px;text-align: center;margin-top: 5vh;">Meus pedidos</p>
             
             <p style="font-size: 30px;text-align: center;margin-top: 5vh;">Endereços de entrega</p>
-
-            {% for endereco in ENDERECOS %}
-            <div class="item">
-                <span class="texto">
-                    <p style="font-size: 30px;">{{ENDERECOS[endereco]["apelido"]}}</p>
-                    <p>{{ENDERECOS[endereco]["rua"]}}</p>
-                    <p>{{ENDERECOS[endereco]["bairro"]}}</p>
-                    <p>{{ENDERECOS[endereco]["cep"]}}</p>
-                    <p>{{ENDERECOS[endereco]["complemento"]}}</p>
-                    <p>{{ENDERECOS[endereco]["referencia"]}}</p>
-                </span>
-                <button class="remove_button" value="{{endereco}}">
-                    <i class="fa-solid fa-xmark" style="font-size: 20px;"></i>
-                </button>
-            </div>
-        {% endfor %}
+            {% if ENDERECOS %}
+                {% for endereco in ENDERECOS %}
+                    <div class="item">
+                        <span class="texto">
+                            <p style="font-size: 30px;">{{ENDERECOS[endereco]["apelido"]}}</p>
+                            <p>{{ENDERECOS[endereco]["rua"]}}</p>
+                            <p>{{ENDERECOS[endereco]["bairro"]}}</p>
+                            <p>{{ENDERECOS[endereco]["cep"]}}</p>
+                            <p>{{ENDERECOS[endereco]["complemento"]}}</p>
+                            <p>{{ENDERECOS[endereco]["referencia"]}}</p>
+                        </span>
+                        <button class="remove_button" value="{{endereco}}">
+                            <i class="fa-solid fa-xmark" style="font-size: 20px;"></i>
+                        </button>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div style="margin-top: 20px; font-size: 20px; text-align: center;">
+                    <p><i>Você ainda não registrou um endereço.</i></p>
+                </div>
+            {% endif %}
             <a href="/registrar-endereço">
                 <p>Registrar novo endereço</p>
             </a>
             
             <p style="font-size: 30px;text-align: center;margin-top: 5vh;">Cartões registrados</p>
-            {% for cartao in CARTOES %}
-                <div class="item">
-                    <span class="texto">
-                        <p style="font-size: 30px;">{{CARTOES[cartao]['apelido_cartao']}}</p>
-                        <p>Final {{CARTOES[cartao]['numero_cartao']}}</p>
-                        <p>Validade {{CARTOES[cartao]['validade']}}</p>
-                        <p>Titular: {{CARTOES[cartao]['titular']}}</p>
-                        
-                    </span>
-                    <button class="remove_button" value="{{cartao}}">
-                        <i class="fa-solid fa-xmark" style="font-size: 20px;"></i>
-                    </button>
-                </div>
-            {% endfor %}
+            {% if CARTOES %}
+                {% for cartao in CARTOES %}
+                    <div class="item">
+                        <span class="texto">
+                            <p style="font-size: 30px;">{{CARTOES[cartao]['apelido_cartao']}}</p>
+                            <p>Final {{CARTOES[cartao]['numero_cartao']}}</p>
+                            <p>Validade {{CARTOES[cartao]['validade']}}</p>
+                            <p>Titular: {{CARTOES[cartao]['titular']}}</p>
+                            
+                        </span>
+                        <button class="remove_button" value="{{cartao}}">
+                            <i class="fa-solid fa-xmark" style="font-size: 20px;"></i>
+                        </button>
+                    </div>
+                {% endfor %}
+            {% else %}
+            <div style="margin-top: 20px; font-size: 20px; text-align: center;">
+                <p><i>Você ainda não registrou nenhum cartão na sua conta.</i></p>
+            </div>
+            {% endif %}
 
             <a href="/registrar-cartao">
                 <p style="margin-bottom: 25px;">Registrar novo cartão</p>
