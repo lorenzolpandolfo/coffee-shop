@@ -59,7 +59,7 @@ def pagamento():
 
         return render_template("pagamento.html",
                             USER=session,
-                            ITENS_CARRINHO=session['carrinho'],
+                            ITENS_CARRINHO=session["carrinho"],
                             QUANTIDADE_CARRINHO=len(session["carrinho"]),
                             SOMA_TOTAL = somar_preco_total(somar_preco_itens(), somar_preco_adicionais()),
                             ENTREGA = session["dados_entrega"],

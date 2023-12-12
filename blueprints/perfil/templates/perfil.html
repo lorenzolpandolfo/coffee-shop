@@ -7,6 +7,7 @@
     <script src="https://kit.fontawesome.com/6b3ea5ddf8.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="/static/add_n_remove_endereco.js"></script>
+    <script src="/static/add_n_remove_card.js"></script>
     <script src="/static/sair_da_conta.js"></script>
 
     <title>Lo Café - Meu Perfil</title>
@@ -72,6 +73,8 @@
                 </span>
             </div>
             
+            <p style="font-size: 30px;text-align: center;margin-top: 5vh;">Meus pedidos</p>
+            
             <p style="font-size: 30px;text-align: center;margin-top: 5vh;">Endereços de entrega</p>
 
             {% for endereco in ENDERECOS %}
@@ -94,18 +97,20 @@
             </a>
             
             <p style="font-size: 30px;text-align: center;margin-top: 5vh;">Cartões registrados</p>
-            <div class="item">
-                <span class="texto">
-                    <p style="font-size: 30px;">Cartão do Lorenzo</p>
-                    <p>Final 5103</p>
-                    <p>Validade 12/25</p>
-                    <p>Titular: Lorenzo Pandolfo</p>
-                    
-                </span>
-                <button class="remove_button" value="{{item}}">
-                    <i class="fa-solid fa-xmark" style="font-size: 20px;"></i>
-                </button>
-            </div>
+            {% for cartao in CARTOES %}
+                <div class="item">
+                    <span class="texto">
+                        <p style="font-size: 30px;">{{CARTOES[cartao]['apelido_cartao']}}</p>
+                        <p>Final {{CARTOES[cartao]['numero_cartao']}}</p>
+                        <p>Validade {{CARTOES[cartao]['validade']}}</p>
+                        <p>Titular: {{CARTOES[cartao]['titular']}}</p>
+                        
+                    </span>
+                    <button class="remove_button" value="{{cartao}}">
+                        <i class="fa-solid fa-xmark" style="font-size: 20px;"></i>
+                    </button>
+                </div>
+            {% endfor %}
 
             <a href="/registrar-cartao">
                 <p style="margin-bottom: 25px;">Registrar novo cartão</p>

@@ -1,6 +1,8 @@
 from flask import Blueprint, render_template, redirect, session, url_for, request, jsonify
 from crud_modules import firebase_settings
+from blueprints.registrarCartao import crypt_info
 import json
+
 
 database = firebase_settings.admin_db
 
@@ -8,36 +10,33 @@ reg_cartao_bp = Blueprint("reg_cartao", __name__, template_folder="templates")
 
 
 @reg_cartao_bp.route("/registrar-cartao", methods=["POST", "GET"])
-
-
 def reg_cartao():
     try:
-
         mylocalid = session['user']['localId']
 
         if request.method == "GET":
-            rua_value = request.args.get('rua_value')
-            numero_value = request.args.get('numero_value')
-            bairro_value = request.args.get('bairro_value')
-            cep_value = request.args.get('cep_value')
-            complemento_value = request.args.get('complemento_value')
-            apelido_value = request.args.get('apelido_value')
-            referencia_value = request.args.get('referencia_value')
+            numero_cartao = request.args.get('numero_cartao')
+            validade = request.args.get('validade')
+            cvv = request.args.get('cvv')
+            titular = request.args.get('titular')
+            cpf = request.args.get('cpf')
+            apelido_cartao = request.args.get('apelido_cartao')
 
-            if cep_value:
+            if numero_cartao is not None:
                 dc = {
-                    "rua":          rua_value,
-                    "numero":       numero_value,
-                    "bairro":       bairro_value,
-                    "cep":          cep_value,
-                    "complemento":  complemento_value,
-                    "apelido":      apelido_value,
-                    "referencia":   referencia_value
+                    "numero_cartao":    numero_cartao,
+                    "validade":         validade,
+                    "cvv":              cvv,
+                    "titular":          titular,
+                    "cpf":              cpf,
+                    "apelido_cartao":   apelido_cartao
                 }
-
-                print(dc)
-
-                database.reference(f"/users/{mylocalid}/enderecos").push().set(dc)
+                
+                # criptografando os dados
+                dc = crypt_info.encrypt_dict(dc)
+                
+                # enviando dados para o banco de dados
+                database.reference(f"/users/{mylocalid}/cartoes").push().set(dc)
                 
 
         return render_template("reg_cartao.html",

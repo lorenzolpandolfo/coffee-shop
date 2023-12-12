@@ -82,20 +82,26 @@
             <div class="receber">
                 <p class="title">Receber em Casa</p>
                 <p style="font-style: italic;">Logo já tá chegando!</p>
-
-                {% for endereco in ENDERECOS %}
-                <a href="#" style="text-decoration: none; color: black;" id="{{endereco}}" class="enviar" data="{{ENDERECOS[endereco]}}">
-                    <div class="item">
-                        <p style="font-size: 30px;">{{ENDERECOS[endereco]["apelido"]}}</p>
-                        <p>{{ENDERECOS[endereco]["rua"]}}</p>
-                        <p>{{ENDERECOS[endereco]["bairro"]}}</p>
-                        <p>{{ENDERECOS[endereco]["cep"]}}</p>
-                        <p>{{ENDERECOS[endereco]["complemento"]}}</p>
-                        <p>{{ENDERECOS[endereco]["referencia"]}}</p>
+                {% if ENDERECOS %}
+                    {% for endereco in ENDERECOS %}
+                        <a href="#" style="text-decoration: none; color: black;" id="{{endereco}}" class="enviar" data="{{ENDERECOS[endereco]}}">
+                            <div class="item">
+                                <p style="font-size: 30px;">{{ENDERECOS[endereco]["apelido"]}}</p>
+                                <p>{{ENDERECOS[endereco]["rua"]}}</p>
+                                <p>{{ENDERECOS[endereco]["bairro"]}}</p>
+                                <p>{{ENDERECOS[endereco]["cep"]}}</p>
+                                <p>{{ENDERECOS[endereco]["complemento"]}}</p>
+                                <p>{{ENDERECOS[endereco]["referencia"]}}</p>
+                            </div>
+                            <span type="hidden" class="infos" value="{{endereco}}">
+                        </a>
+                    {% endfor %}
+                {% else %}
+                    <div style="margin-top: 65px; font-size: 30px; text-align: center;">
+                        <p>Você ainda não registrou nenhum endereço na sua conta.</p>
+                        <p>Vá na aba de perfil para registrar o seu endereço de entrega.</p>
                     </div>
-                    <span type="hidden" class="infos" value="{{endereco}}">
-                </a>
-                {% endfor %}
+                {% endif %}
             </div>      
     </div>
     

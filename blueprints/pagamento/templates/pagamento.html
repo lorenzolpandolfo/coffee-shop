@@ -117,11 +117,18 @@
             <button class="gerar_pix" preco="{{SOMA_TOTAL}}">Pix</button>
             <button class="button">Cartão</button>
                 
-                <span class="pix" style="display: none;">
-                    <img class="pix_img" style="width: 90vw;max-width: 300px;margin-left: 10px;">
-                    <p class="copy_output" style="display: none;margin:0;">Código copiado!</p>
-                    <button class="copiar_qr_code">Copiar código pix</button>
-                </span>
+            <span class="pix" style="display: none;">
+                <img class="pix_img" style="width: 90vw;max-width: 300px;margin-left: 10px;">
+                <p class="copy_output" style="display: none;margin:0;">Código copiado!</p>
+                <button class="copiar_qr_code">Copiar código pix</button>
+            </span>
 
+            {% if CARTOES %}
+            {% else %}
+            <div style="margin-top: 65px; font-size: 30px; text-align: center;">
+                <p>Você ainda não registrou nenhum cartão na sua conta.</p>
+                <p>Vá na aba de perfil para registrar um novo cartão.</p>
+            </div>
+            {% endif %}
 </body>
 </html>

@@ -21,5 +21,5 @@ def editando():
     
     return render_template("editando.html",
                            USER=session,
-                           ITENS_CARRINHO=session['carrinho'],
+                           ITENS_CARRINHO=session["carrinho"],
                            QUANTIDADE_CARRINHO=len(session["carrinho"]))

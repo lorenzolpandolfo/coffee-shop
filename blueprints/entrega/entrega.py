@@ -7,6 +7,13 @@ entrega_bp = Blueprint("entrega", __name__, template_folder="templates")
 database = firebase_settings.admin_db
 
 
+def consultar_enderecos(localId):
+    try:
+        return database.reference(f"/users/{localId}/enderecos/").get()
+
+    except Exception:
+        return {}
+
 @entrega_bp.route("/entrega", methods=["POST", "GET"])
 def entrega():
     try:
@@ -34,7 +41,7 @@ def entrega():
                             ITENS_CARRINHO=session['carrinho'],
                             QUANTIDADE_CARRINHO=len(session["carrinho"]),
                             LOJAS=database.reference("/stores/").get(),
-                            ENDERECOS=database.reference(f"/users/{mylocalid}/enderecos/").get())
+                            ENDERECOS=consultar_enderecos(mylocalid))
     
     except Exception:
         return redirect(url_for("login.index"))
